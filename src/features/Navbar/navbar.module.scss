@@ -1,0 +1,42 @@
+@import '~/mixins.scss';
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: var(--book-max-content-width);
+  border-bottom: solid 1px var(--book--secondary2-color);
+  padding: 38px 0 36px 0;
+  > span {
+    width: 12%;
+    @include bebas;
+    font-size: 28px;
+    display: flex;
+    @include flexCenter;
+    height: 56px;
+  }
+  > .formContainer {
+    width: 48%;
+  }
+  & .iconContainer {
+    width: 12%;
+    height: 56px;
+    display: flex;
+    @include flexCenter;
+    button {
+      width: 33.3%;
+      &:hover:not(:disabled) svg {
+        fill: var(--book--primary-color);
+        color: var(--book--primary-color);
+      }
+      &:disabled {
+        cursor: not-allowed;
+      }
+      svg {
+        fill: var(--book--bg-color);
+        color: var(--book--bg-color);
+        stroke: var(--book--primary-color);
+        stroke-width: 50px;
+      }
+    }
+  }
+}
