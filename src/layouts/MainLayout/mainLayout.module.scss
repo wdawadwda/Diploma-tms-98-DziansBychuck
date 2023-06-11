@@ -1,0 +1,22 @@
+.container {
+  --book-max-content-width: 1120px;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex: 1;
+    max-width: var(--book-max-content-width);
+    margin: auto;
+    width: 100%;
+    padding: 72px 0;
+  }
+
+  footer {
+    width: 100%;
+    max-width: var(--book-max-content-width);
+    margin: auto;
+  }
+}

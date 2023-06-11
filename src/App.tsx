@@ -1,9 +1,10 @@
 import './App.styles.scss';
+import { AppRouter } from '~/router/appRouter';
 
 export const App = () => {
   return (
     <>
-      <div>Getting started</div>
+      <AppRouter />
     </>
   );
 };
