@@ -1,0 +1,90 @@
+@import '~/mixins.scss';
+.btn {
+  display: flex;
+  @include flexCenter;
+  cursor: pointer;
+  @include bebas;
+  font-size: 24px;
+  line-height: 24px;
+  margin: 0;
+  height: 56px;
+  padding: 20px;
+  border: none;
+  gap: 11px;
+}
+
+.icon {
+  display: flex;
+  @include flexCenter;
+  height: 24px;
+  width: 24px;
+}
+
+.primary {
+  background-color: var(--book--primary-color);
+  color: var(--book--btn-text-color);
+  &:hover:not(:disabled) {
+    background-color: var(--book--primary2-color);
+  }
+  &:disabled {
+    background-color: $disabled-color;
+    cursor: not-allowed;
+  }
+}
+
+.secondary {
+  @extend .primary;
+  .icon {
+    > svg {
+      fill: var(--book--svg-primary-color);
+      stroke: var(--book--svg-stroke-primary-color);
+    }
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--book--primary-color);
+    .icon {
+      > svg {
+        fill: var(--book--svg-secondary-color);
+        stroke: var(--book--svg-stroke-secondary-color);
+      }
+    }
+  }
+  &:disabled {
+    background-color: $disabled-color;
+    cursor: not-allowed;
+    .icon {
+      > svg {
+        fill: $disabled-color;
+      }
+    }
+  }
+}
+
+.secondary2 {
+  color: var(--book--primary-color);
+  background-color: inherit;
+  font-size: 16px;
+  line-height: 24px;
+  @include heliosBold;
+  .icon {
+    height: 14px;
+    width: 18px;
+    > svg {
+      fill: var(--book--svg-primary-color);
+      stroke: var(--book--svg-primary-color);
+    }
+  }
+  &:hover:not(:disabled) {
+    color: var(--book--secondary-color);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    .icon {
+      > svg {
+        fill: $disabled-color;
+        stroke: $disabled-color;
+      }
+    }
+  }
+}
