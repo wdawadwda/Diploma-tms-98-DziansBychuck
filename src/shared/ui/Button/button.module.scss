@@ -1,0 +1,53 @@
+@import '~/mixins.scss';
+.btn {
+  display: flex;
+  @include flexCenter;
+  cursor: pointer;
+  @include bebas;
+  font-size: 24px;
+  line-height: 24px;
+  margin: 0;
+  height: 56px;
+  padding: 20px;
+  border: none;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
+  > svg {
+    fill: none;
+    stroke: none;
+  }
+}
+
+.primary {
+  background-color: var(--book--primary-color);
+  color: var(--book--btn-text-color);
+  // &:hover:not(:disabled) {
+  //   background-color: var(--tms-primary-2-color);
+  // }
+}
+
+.secondary {
+  // background-color: var(--tms-background-light-color);
+  // color: var(--tms-secondary-color);
+
+  // &:hover:not(:disabled) {
+  //   background-color: var(--tms-background-medium-color);
+  // }
+}
+
+.secondary2 {
+  // color: var(--tms-error-color);
+  // background-color: transparent;
+
+  // &:hover:not(:disabled) {
+  //   background-color: transparent;
+  //   box-shadow: inset 0 0 0 1px var(--tms-background-medium-color);
+  // }
+
+  // &:disabled {
+  //   background-color: transparent;
+  // }
+}
