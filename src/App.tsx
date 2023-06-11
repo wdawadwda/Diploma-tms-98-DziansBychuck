@@ -1,5 +1,9 @@
-import './App.styles.css';
+import './App.styles.scss';
 
 export const App = () => {
-  return <h1>Getting started</h1>;
+  return (
+    <>
+      <div>Getting started</div>
+    </>
+  );
 };

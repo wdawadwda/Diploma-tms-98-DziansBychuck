@@ -1,0 +1,29 @@
+@mixin flexCenter {
+  align-items: center;
+  justify-content: center;
+}
+@mixin blockCenter {
+  margin: 0 auto;
+}
+
+$disabled-color: var(--book--secondary-color);
+
+//Fonts
+//_________________________________________________
+@mixin bebas {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 700;
+}
+@mixin heliosRegular {
+  font-family: 'HeliosC', sans-serif;
+  font-weight: 400;
+}
+@mixin heliosBold {
+  font-family: 'HeliosC-Bold', sans-serif;
+  font-weight: 700;
+}
+@mixin heliosItalic {
+  font-family: 'HeliosC-Italic', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+}
