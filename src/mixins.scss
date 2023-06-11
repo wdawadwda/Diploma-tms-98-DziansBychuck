@@ -6,6 +6,8 @@
   margin: 0 auto;
 }
 
+$disabled-color: var(--book--secondary-color);
+
 //Fonts
 //_________________________________________________
 @mixin bebas {
