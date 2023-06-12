@@ -1,9 +1,5 @@
 @import '~/mixins.scss';
 .container {
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-  width: var(--book-max-content-width);
   border-top: solid 1px var(--book--secondary2-color);
   padding: 35px 0 35px 0;
   color: var(--book--secondary-color);
