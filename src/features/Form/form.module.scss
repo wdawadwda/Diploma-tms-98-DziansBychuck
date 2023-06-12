@@ -1,10 +1,25 @@
-// .container {
-// margin: auto;
-// padding: 40px;
-// max-width: 600px;
-// border: 1px solid var(--tms-background-medium-color);
-
-// & > *:not(:last-child) {
-//   margin-bottom: 40px;
-// }
-// }
+@import '~/mixins.scss';
+.formСontainer {
+  padding: 32px 32px 40px 32px;
+  & button {
+    margin-top: 40px;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    & label {
+      @include heliosBold;
+      font-size: 16px;
+      line-height: 32px;
+      color: var(--book--primary-color);
+    }
+    & input {
+      height: 56px;
+      margin-bottom: 16px;
+    }
+    .errorMessage {
+      color: var(--book--error-color);
+      margin-bottom: 16px;
+    }
+  }
+}

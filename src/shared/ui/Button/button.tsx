@@ -27,7 +27,7 @@ export const Button = ({
   return (
     <button
       {...passThroughProperties}
-      className={`${classNames({
+      className={`${passThroughProperties.className || ''} ${classNames({
         [buttonStyles.btn]: true,
         [buttonStyles[appearance]]: true
       })}`}

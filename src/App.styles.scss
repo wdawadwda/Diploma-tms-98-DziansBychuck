@@ -2,6 +2,7 @@
 @import url('https://fonts.cdnfonts.com/css/din-pro-cond');
 @import url('./fonts.scss');
 @import '~/mixins.scss';
+@import 'normalize.css/normalize';
 
 :root {
   --book-max-content-width: 1120px;
@@ -12,6 +13,8 @@
   --book--primary-color: #313037;
   --book--primary2-color: #5b5a62;
   --book--secondary-color: #a8a8a8;
+  --book--error-color: red;
+  --book--success-color: blue;
   //btn
   --book--btn-text-color: white;
   //svg

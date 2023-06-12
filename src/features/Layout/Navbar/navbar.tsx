@@ -1,10 +1,12 @@
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
+import { NavLink } from 'react-router-dom';
 
 import { ReactComponent as Heart } from '~/assets/icons/Buttons/heart.svg';
 import { Button } from '~/shared/ui/Button/button';
 
+import { NavLinks } from './navbar.constants';
 import Style from './navbar.module.scss';
 import { SearchBar } from '../../SearchBar/searchBar';
 import StyleLayout from '../layout.module.scss';
@@ -17,7 +19,7 @@ export const Navbar = () => {
         [StyleLayout.container]: true
       })}
     >
-      <span>BOOKSTORE</span>
+      <NavLink to={`${NavLinks[0].path}`}>{`${NavLinks[0].title}`}</NavLink>
       <div className={Style.formContainer}>
         <SearchBar />
       </div>

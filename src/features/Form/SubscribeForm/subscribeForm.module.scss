@@ -1,7 +1,6 @@
 @import '~/mixins.scss';
 .container {
   --book--bg-color: #f4eefd;
-
   background-color: var(--book--bg-color);
   padding: 56px 64px;
   > h3 {
@@ -16,11 +15,33 @@
     line-height: 28px;
   }
   .inputContainer {
-    margin-top: 32px; //TODO: не забыть этот стиль когда будем переписывать инпут на компонент
+    margin-top: 32px;
     display: flex;
     width: 100%;
     > input {
+      padding-left: 24px;
       flex: 1;
+      border: none;
+      &::placeholder {
+        color: var(--book--secondary-color);
+        @include DINProRegular;
+        font-size: 16px;
+      }
     }
+    > button {
+      @include bebas;
+      font-size: 18px;
+      line-height: 24px;
+      padding: 16px 40px;
+      background-color: var(--book--primary-color);
+      color: var(--book--btn-text-color);
+    }
+  }
+  .errorMessage {
+    margin-top: 15px;
+    color: var(--book--error-color);
+  }
+  .successMessage {
+    color: var(--book--success-color);
   }
 }

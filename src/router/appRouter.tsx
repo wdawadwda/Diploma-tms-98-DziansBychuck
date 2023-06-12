@@ -1,8 +1,11 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import { SubscribeForm } from '~/features/Form/SubscribeForm/subscribeForm';
 import { MainLayout } from '~/layouts/MainLayout/mainLayout';
-import { NotFound } from '~/pages/NotFound/notFound';
+import { NewPassword } from '~/pages/From/NewPassword/newPass';
+import { RegistrAuth } from '~/pages/From/RegistrAuth/registrAuth';
+import { ResetPassword } from '~/pages/From/ResetPassword/resetPass';
+import { HomePage } from '~/pages/Home/home';
+import { NotFoundPage } from '~/pages/NotFound/notFound';
 
 export const routerShema = createBrowserRouter([
   {
@@ -11,17 +14,29 @@ export const routerShema = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <SubscribeForm />
+        element: <HomePage />
+      },
+      {
+        path: `registration-authentication`,
+        element: <RegistrAuth />
+      },
+      {
+        path: `reset_password`,
+        Component: ResetPassword
+      },
+      {
+        path: `new_password`,
+        element: <NewPassword />
       },
       {
         path: '*',
-        element: <NotFound />
+        element: <NotFoundPage />
       }
     ]
   },
   {
     path: '*',
-    element: <NotFound />
+    element: <NotFoundPage />
   }
 ]);
 

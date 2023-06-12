@@ -3,5 +3,6 @@
   display: flex;
   justify-content: space-between;
   margin: auto;
-  width: var(--book-max-content-width);
+  // width: var(--book-max-content-width);
+  width: 100%;
 }

@@ -1,20 +1,24 @@
+@import '~/mixins.scss';
 .container {
   min-height: 100vh;
   min-height: 100dvh;
+  width: var(--book-max-content-width);
   display: flex;
   flex-direction: column;
-
+  @include blockCenter;
   main {
+    display: flex;
+    flex-direction: column;
     flex: 1;
-    max-width: var(--book-max-content-width);
     margin: auto;
     width: 100%;
     padding: 72px 0;
+    height: 100%;
   }
 
   footer {
     width: 100%;
-    max-width: var(--book-max-content-width);
+    // max-width: var(--book-max-content-width);
     margin: auto;
   }
 }

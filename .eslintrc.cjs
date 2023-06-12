@@ -18,7 +18,13 @@ module.exports = {
     rules: {
       'import/no-default-export': 'off'
     }
-  }],
+  },
+    {
+      files: ['*.sagas.ts'],
+      rules: {
+        '@typescript-eslint/no-unsafe-assignment': 'off'
+      }
+    }],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: true,
