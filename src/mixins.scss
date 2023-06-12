@@ -27,3 +27,7 @@ $disabled-color: var(--book--secondary-color);
   font-style: italic;
   font-weight: 400;
 }
+@mixin DINProRegular {
+  font-family: 'DIN Pro Regular', sans-serif;
+  font-weight: 400;
+}
