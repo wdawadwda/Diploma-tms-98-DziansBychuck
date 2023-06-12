@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 
-import { Footer } from '~/features/Footer/footer';
-import { Navbar } from '~/features/Navbar/navbar';
+import { Footer } from '~/features/Layout/Footer/footer';
+import { Navbar } from '~/features/Layout/Navbar/navbar';
 
 import layoutStyles from './mainLayout.module.scss';
 export const MainLayout = () => {
