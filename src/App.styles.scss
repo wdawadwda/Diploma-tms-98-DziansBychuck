@@ -5,6 +5,9 @@
 @import '~/mixins.scss';
 
 :root {
+  --book-max-content-width: 1120px;
+  --book--secondary2-color: #e7e7e7;
+
   --book--bg-color: white;
   --book--text-color: #3d405b;
   --book--primary-color: #313037;
