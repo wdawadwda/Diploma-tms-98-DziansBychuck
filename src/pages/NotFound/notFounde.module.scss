@@ -1,12 +1,11 @@
 @import '~/mixins.scss';
 .container {
-  padding: 5% 0;
   width: 100%;
   display: flex;
   flex-direction: column;
   @include bebas;
   > svg {
-    font-size: 35vh;
+    font-size: 25vh;
     stroke-width: 25px;
     color: var(--book--bg-color);
     stroke: var(--book--primary2-color);
@@ -16,6 +15,7 @@
     @include flexCenter;
     font-size: 15vh;
     color: var(--book--primary2-color);
+    margin: 0px;
   }
   & h3 {
     @extend h2;
