@@ -1,0 +1,26 @@
+@import '~/mixins.scss';
+.container {
+  --book--bg-color: #f4eefd;
+
+  background-color: var(--book--bg-color);
+  padding: 56px 64px;
+  > h3 {
+    @include bebas;
+    font-size: 40px;
+    line-height: 60px;
+    margin: 0px;
+  }
+  > span {
+    @include DINProRegular;
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .inputContainer {
+    margin-top: 32px; //TODO: не забыть этот стиль когда будем переписывать инпут на компонент
+    display: flex;
+    width: 100%;
+    > input {
+      flex: 1;
+    }
+  }
+}
