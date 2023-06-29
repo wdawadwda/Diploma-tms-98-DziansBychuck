@@ -1,0 +1,12 @@
+@import '~/mixins.scss';
+
+.resetLink {
+  @include heliosRegular;
+  line-height: 32px;
+  font-size: 14px;
+  color: var(--book--primary-color);
+  cursor: pointer;
+  &:hover {
+    color: var(--book--secondary-color);
+  }
+}

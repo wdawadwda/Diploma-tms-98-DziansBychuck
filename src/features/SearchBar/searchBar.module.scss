@@ -1,14 +1,16 @@
 @import '~/mixins.scss';
 .container {
-  --book--search-padding-btn: 58px;
+  --book--search-padding-btn: 56px;
   position: relative;
   display: grid;
   grid-template-columns: 1fr auto;
   > input {
-    width: 100%;
+    display: flex;
+    @include flexCenter;
+    max-width: 100%;
     height: 56px;
     border: solid 1px var(--book--secondary2-color);
-    padding: 14px var(--book--search-padding-btn) 10px 20px;
+    padding: 0 var(--book--search-padding-btn) 0 20px;
     &::placeholder {
       color: #a8a8a8;
       @include heliosRegular;
@@ -18,6 +20,7 @@
   }
   > button {
     width: var(--book--search-padding-btn);
+    height: var(--book--search-padding-btn);
     position: absolute;
     right: 0;
     top: 0;

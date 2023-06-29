@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Style from './notFounde.module.scss';
 
-export const NotFound = () => {
+export const NotFoundPage = () => {
   return (
     <div className={Style.container}>
       <FontAwesomeIcon icon={faFaceFrown} />
