@@ -3,6 +3,7 @@
   --book--bg-color: #f4eefd;
   background-color: var(--book--bg-color);
   padding: 56px 64px;
+  margin-top: 72px;
   > h3 {
     @include bebas;
     font-size: 40px;

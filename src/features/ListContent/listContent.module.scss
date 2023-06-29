@@ -1,0 +1,47 @@
+@import '~/mixins.scss';
+
+.contentContsainer {
+  display: flex;
+  @include flexCenter;
+  flex-direction: column;
+  img {
+    width: 100%;
+  }
+  .title {
+    width: 100%;
+    @include bebas;
+    font-size: 24px;
+    line-height: 32px;
+    // text-align: center;
+    min-height: 64px;
+    color: var(--book--primary-color);
+    margin-top: 20px;
+  }
+  .subtitle {
+    width: 100%;
+    @include heliosRegular;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--book--secondary-color);
+    min-height: 72px;
+    // text-align: center;
+    margin-top: 8px;
+  }
+  .additionally {
+    margin-top: 32px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    span {
+      @include bebas;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+  .more {
+    width: 100%;
+    &:hover {
+      color: var(--book--secondary-color);
+    }
+  }
+}
