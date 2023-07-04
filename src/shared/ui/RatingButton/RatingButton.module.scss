@@ -1,0 +1,39 @@
+@import '~/mixins.scss';
+.rating {
+  --book--svg-size: 15px;
+  display: flex;
+  align-items: center;
+
+  .starButton {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: var(--book--svg-size);
+    height: var(--book--svg-size);
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 9px;
+    }
+
+    svg {
+      color: var(--book--bg-color);
+      stroke: var(--book--svg-secondary2-color);
+      stroke-width: 25px;
+      width: var(--book--svg-size);
+      height: var(--book--svg-size);
+    }
+
+    &:hover {
+      svg {
+        color: var(--book--svg-secondary2-color);
+      }
+    }
+  }
+
+  .filledStar {
+    svg {
+      color: var(--book--svg-secondary2-color);
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import '~/mixins.scss';
+.title{
+  font-size: 56px;
+  line-height: 64px;
+  @include bebas;
+  margin-bottom: 48px;
+}
+.loading {
+    min-height: 50vh;
+    display: flex;
+    @include flexCenter;
+    @extend .title;
+  }
