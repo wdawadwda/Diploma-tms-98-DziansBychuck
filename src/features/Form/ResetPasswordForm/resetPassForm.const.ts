@@ -1,16 +1,6 @@
-import * as Yup from 'yup';
-
+import { createFormikProperties } from '../FormUtils';
 import { emailValidationSchema } from '../validation';
 
-export const formikPropertiesSubscribe = {
-  initialValues: {
-    email: '',
-    isValid: false,
-    dirty: false
-  },
-  validationSchema: Yup.object({
-    email: emailValidationSchema
-  }),
-  validateOnChange: true,
-  validateOnBlur: true
-};
+export const formikPropertiesResetPass = createFormikProperties({
+  email: emailValidationSchema
+});

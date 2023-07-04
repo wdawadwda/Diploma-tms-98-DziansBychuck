@@ -2,25 +2,26 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 import { Button } from '~/shared/ui/Button/button';
 
+import { CustomErrorMessages } from './Error/CustomErrorSignUpForm';
 import { formSchema } from './form.schema';
-import { formikPropertiesSubscribe } from './signUpForm.const';
+import { formikPropertiesSignUp } from './signUpForm.const';
+import { useSignUpForm } from './useSignUp';
 import Styles from '../form.module.scss';
-import { type FormValues } from '../form.type';
-
-const handleFormSubmit = ({
-  name,
-  email,
-  password,
-  confirmPassword
-}: FormValues) => {
-  console.warn('Form values:', { name, email, password, confirmPassword });
-};
 
 export const SignUpForm = () => {
+  const { isLoading, error, isSuccess, customError, handleFormSubmit } =
+    useSignUpForm();
+
   return (
     <div className={Styles.formСontainer}>
+      {error && <CustomErrorMessages customError={customError} />}
+      {isSuccess && (
+        <div className={Styles.detailСontainer}>
+          <span className={Styles.detail}>{`Проверьте вашу почту`}</span>
+        </div>
+      )}
       <Formik
-        {...formikPropertiesSubscribe}
+        {...formikPropertiesSignUp}
         onSubmit={handleFormSubmit}
       >
         {({ dirty: isDirty, isValid }) => (
@@ -48,9 +49,9 @@ export const SignUpForm = () => {
               isFullWidth={true}
               appearance="primary"
               type="submit"
-              disabled={!isDirty || !isValid}
+              disabled={!isDirty || !isValid || isLoading}
             >
-              sign up
+              {isLoading ? 'Signing up...' : 'Sign up'}
             </Button>
           </Form>
         )}

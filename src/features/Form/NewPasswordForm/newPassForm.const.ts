@@ -1,14 +1,10 @@
 import { createFormikProperties } from '../FormUtils';
 import {
   confirmPasswordValidationSchema,
-  emailValidationSchema,
-  nameValidationSchema,
   passwordValidationSchema
 } from '../validation';
 
-export const formikPropertiesSignUp = createFormikProperties({
-  name: nameValidationSchema,
-  email: emailValidationSchema,
+export const formikPropertiesNewPass = createFormikProperties({
   password: passwordValidationSchema,
   confirmPassword: confirmPasswordValidationSchema
 });
