@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { type RatingButtonHook } from './RatingButton.type';
+import { type RatingButtonHook } from './ratingButton.type';
 
 export const useRatingButton = (): RatingButtonHook => {
   const [hoveredRating, setHoveredRating] = useState(0);

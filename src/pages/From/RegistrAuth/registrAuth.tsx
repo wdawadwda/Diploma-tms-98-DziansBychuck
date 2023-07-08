@@ -1,4 +1,4 @@
-import { Tabs } from '~/shared/ui/Tabs/tabs';
+import { Tabs } from '~/shared/ui/Tabs/Tabs';
 import { useTabs } from '~/shared/ui/Tabs/useTabs';
 
 import { type FormState, tabs } from './registrAuth.type';

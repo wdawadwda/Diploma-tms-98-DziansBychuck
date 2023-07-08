@@ -1,7 +1,7 @@
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Button } from '~/shared/ui/Button/button';
+import { Button } from '~/shared/ui/Button/Button';
 
 import Style from './searchBar.module.scss';
 

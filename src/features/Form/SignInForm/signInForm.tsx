@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { Navigate } from 'react-router-dom';
 
-import { Button } from '~/shared/ui/Button/button';
+import { Button } from '~/shared/ui/Button/Button';
 import { useCreateTokensMutation } from '~/store/api/user/user.api';
 import { useAppDispatch, useAppSelector } from '~/store/store.types';
 import { selectTokens } from '~/store/user/user.selectors';

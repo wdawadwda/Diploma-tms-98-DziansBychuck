@@ -4,11 +4,11 @@ import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 
 import { ReactComponent as Heart } from '~/assets/icons/Buttons/heart.svg';
-import { Button } from '~/shared/ui/Button/button';
+import { Button } from '~/shared/ui/Button/Button';
 
 import { NavLinks } from './navbar.constants';
 import Style from './navbar.module.scss';
-import { SearchBar } from '../../SearchBar/searchBar';
+import { SearchBar } from '../../SearchBar/SearchBar';
 import StyleLayout from '../layout.module.scss';
 
 export const Navbar = () => {

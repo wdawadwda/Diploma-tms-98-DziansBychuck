@@ -1,5 +1,5 @@
-import { SignInForm } from '~/features/Form/SignInForm/signInForm';
-import { SignUpForm } from '~/features/Form/SignUpForm/signUpFrom';
+import { SignInForm } from '~/features/Form/SignInForm/SignInForm';
+import { SignUpForm } from '~/features/Form/SignUpForm/SignUpFrom';
 
 import { type FormState } from './registrAuth.type';
 

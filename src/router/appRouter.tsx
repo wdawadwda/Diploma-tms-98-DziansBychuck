@@ -1,38 +1,22 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import { useSelector } from 'react-redux';
-import {
-  Navigate,
-  Outlet,
-  RouterProvider,
-  createBrowserRouter
-} from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import { MainLayout } from '~/layouts/MainLayout/mainLayout';
-import { NewPassword } from '~/pages/From/NewPassword/newPass';
-import { RegistrAuth } from '~/pages/From/RegistrAuth/registrAuth';
-import { ResetPassword } from '~/pages/From/ResetPassword/resetPass';
+import { MainLayout } from '~/layouts/MainLayout/MainLayout';
+import { AccountPage } from '~/pages/From/AccountPage/AccountPage';
+import { NewPassword } from '~/pages/From/NewPassword/NewPass';
+import { RegistrAuth } from '~/pages/From/RegistrAuth/RegistrAuth';
+import { ResetPassword } from '~/pages/From/ResetPassword/ResetPass';
 import { SuccessPage } from '~/pages/From/SuccessPage/SuccessPage';
-import { HomePage } from '~/pages/Home/home';
-import { NotFoundPage } from '~/pages/NotFound/notFound';
+import { HomePage } from '~/pages/Home/Home';
+import { NotFoundPage } from '~/pages/NotFound/NotFound';
 import { fetchUser } from '~/store/api/fetchUser/fetchUser.api';
 import { useAppDispatch, useAppSelector } from '~/store/store.types';
-import { selectTokens, selectUser } from '~/store/user/user.selectors';
+import { selectTokens } from '~/store/user/user.selectors';
 
-const PublicOnlyRoute = () => {
-  const user = useSelector(selectUser);
+import { AccessControlRoute } from './routerUtils';
 
-  return user ? (
-    <Navigate
-      to="/"
-      replace
-    />
-  ) : (
-    <Outlet />
-  );
-};
-
-export const routerShema = createBrowserRouter([
+export const routerSchema = createBrowserRouter([
   {
     Component: MainLayout,
     path: '/',
@@ -42,21 +26,30 @@ export const routerShema = createBrowserRouter([
         element: <HomePage />
       },
       {
-        element: <PublicOnlyRoute />,
+        element: <AccessControlRoute isPublicOnly={true} />,
         children: [
           {
             path: 'registration-authentication',
             element: <RegistrAuth />
+          },
+          {
+            path: '/activate/:uid/:token',
+            element: <SuccessPage />
+          }
+        ]
+      },
+      {
+        element: <AccessControlRoute isProtected={true} />,
+        children: [
+          {
+            path: 'account',
+            Component: AccountPage
           }
         ]
       },
       {
         path: `reset_password`,
         Component: ResetPassword
-      },
-      {
-        path: '/activate/:uid/:token',
-        element: <SuccessPage />
       },
       {
         path: `new_password`,
@@ -77,15 +70,28 @@ export const routerShema = createBrowserRouter([
 export const AppRouter = () => {
   const dispatch = useAppDispatch();
   const tokens = useAppSelector(selectTokens);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     if (tokens) {
-      const promise = dispatch(fetchUser());
-
-      return () => {
-        promise.abort('cancelled');
+      const fetchData = async () => {
+        await dispatch(fetchUser());
+        setIsLoading(false);
       };
+
+      void fetchData();
+    } else {
+      setIsLoading(false);
     }
   }, [dispatch, tokens]);
 
-  return <RouterProvider router={routerShema} />;
+  return (
+    <>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <RouterProvider router={routerSchema} />
+      )}
+    </>
+  );
 };
