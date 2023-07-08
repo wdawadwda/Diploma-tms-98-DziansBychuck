@@ -26,7 +26,7 @@ export const useHandleFormSubmit = (): [
   const [status, setStatus] = useState('idle');
 
   const handleFormSubmit = async (
-    { email }: FormValues,
+    values: FormValues,
     formikBag: FormikHelpers<FormValues>
   ) => {
     setStatus('loading');
@@ -41,7 +41,7 @@ export const useHandleFormSubmit = (): [
         setStatus('idle');
       }, 5000);
     } else {
-      console.warn({ email });
+      console.warn(values);
       setStatus('success');
       formikBag.resetForm();
     }

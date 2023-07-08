@@ -1,22 +1,61 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Navigate } from 'react-router-dom';
 
 import { Button } from '~/shared/ui/Button/button';
+import { useCreateTokensMutation } from '~/store/api/user/user.api';
+import { useAppDispatch, useAppSelector } from '~/store/store.types';
+import { selectTokens } from '~/store/user/user.selectors';
+import { userActions } from '~/store/user/user.slice';
 
 import { formSchema } from './form.schema';
-import { formikPropertiesSubscribe } from './signInForm.const';
+import { formikPropertiesSignIn } from './signInForm.const';
 import Style from './signInForm.module.scss';
+import { type CustomErrorSignIn } from './signInForm.type';
 import Styles from '../form.module.scss';
 import { type FormValues } from '../form.type';
 
-const handleFormSubmit = ({ email, password }: FormValues) => {
-  console.warn('Form values:', { email, password });
-};
-
 export const SignInForm = () => {
+  const tokens = useAppSelector(selectTokens);
+  const dispatch = useAppDispatch();
+  const [createTokensMutation, { isLoading, error }] =
+    useCreateTokensMutation();
+  const customError = error as CustomErrorSignIn;
+  const handleFormSubmit = async ({ email, password }: FormValues) => {
+    try {
+      if (email && password) {
+        const response = await createTokensMutation({ email, password });
+        if ('data' in response) {
+          const jwt = response.data;
+          dispatch(userActions.setTokens(jwt));
+        } else {
+          throw new Error('Response data not found');
+        }
+      } else {
+        throw new Error('email, password not found');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+  if (tokens) {
+    return (
+      <Navigate
+        to="/"
+        replace
+      />
+    );
+  }
   return (
     <div className={Styles.formСontainer}>
+      {error && (
+        <div className={Styles.detailСontainer}>
+          <span
+            className={Styles.detail}
+          >{`${customError.status} ${customError.data.detail}`}</span>
+        </div>
+      )}
       <Formik
-        {...formikPropertiesSubscribe}
+        {...formikPropertiesSignIn}
         onSubmit={handleFormSubmit}
       >
         {({ dirty: isDirty, isValid }) => (
@@ -45,7 +84,7 @@ export const SignInForm = () => {
               isFullWidth={true}
               appearance="primary"
               type="submit"
-              disabled={!isDirty || !isValid}
+              disabled={!isDirty || !isValid || isLoading}
             >
               sign in
             </Button>

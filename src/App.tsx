@@ -1,6 +1,7 @@
+import './App.styles.scss';
+
 import React from 'react';
 
-import './App.styles.scss';
 import { Provider } from 'react-redux';
 
 import { AppRouter } from '~/router/appRouter';

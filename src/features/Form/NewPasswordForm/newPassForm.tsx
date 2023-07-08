@@ -3,8 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { Button } from '~/shared/ui/Button/button';
 
 import { formSchema } from './form.schema';
-import Style from './newPass.module.scss';
-import { formikPropertiesSubscribe } from './newPassFormconst';
+import { formikPropertiesNewPass } from './newPassForm.const';
 import Styles from '../form.module.scss';
 import { type FormValues } from '../form.type';
 
@@ -15,9 +14,9 @@ const handleFormSubmit = ({ password, confirmPassword }: FormValues) => {
 export const NewPasswordForm = () => {
   return (
     <div className={Styles.formСontainer}>
-      <div className={Style.title}>reset password</div>
+      <div className={Styles.title}>reset password</div>
       <Formik
-        {...formikPropertiesSubscribe}
+        {...formikPropertiesNewPass}
         onSubmit={handleFormSubmit}
       >
         {({ dirty: isDirty, isValid }) => (
