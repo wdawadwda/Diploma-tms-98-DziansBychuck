@@ -1,54 +1,48 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { type AxiosError } from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { useNavigate } from 'react-router-dom';
 
 import { Button } from '~/shared/ui/Button/Button';
-import { resetPasswordFetch } from '~/store/api/fetchUser/fetchUser.api';
+import { setEmailFetch } from '~/store/api/fetchUser/fetchUser.api';
+import { useAppDispatch } from '~/store/store.types';
+import { userActions } from '~/store/user/user.slice';
 
-import { formSchema } from './form.schema';
-import { formikPropertiesResetPass } from './resetPassForm.const';
+import { formSchemaSetEmail } from './form.schema';
+import { formikPropertiesSetEmail } from './setEmail.const';
 import Styles from '../form.module.scss';
 import { type FormValues } from '../form.type';
 
-export const ResetPasswordForm = () => {
-  const abortController = new AbortController();
+export const SetEmail = ({ signal }: { signal: AbortSignal }) => {
+  const dispatch = useAppDispatch();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [isResetSuccessful, setIsResetSuccessful] = useState(false);
-  const navigate = useNavigate();
 
   const handleFormSubmit = async (values: FormValues) => {
-    const { email } = values;
+    const { current_password, new_email } = values;
     try {
-      if (email === undefined) {
-        throw new Error('email не могут быть undefined');
+      if (current_password !== undefined && new_email !== undefined) {
+        await setEmailFetch(
+          {
+            current_password,
+            new_email
+          },
+          signal
+        );
+        dispatch(userActions.logout());
       } else {
-        await resetPasswordFetch({ email }, abortController.signal);
-        setIsResetSuccessful(true);
+        throw new Error(
+          'Значения current_password и new_email не могут быть undefined'
+        );
       }
     } catch (error) {
       setErrorMessage((error as AxiosError).message);
     }
   };
-  useEffect(() => {
-    let redirectTimer: number;
-    if (isResetSuccessful) {
-      redirectTimer = window.setTimeout(() => {
-        navigate('/registration-authentication');
-      }, 5000);
-    }
-
-    return () => {
-      clearTimeout(redirectTimer);
-    };
-  }, [isResetSuccessful, navigate]);
 
   return (
     <div className={Styles.formСontainer}>
-      <div className={Styles.title}>new password</div>
       <Formik
-        {...formikPropertiesResetPass}
+        {...formikPropertiesSetEmail}
         onSubmit={handleFormSubmit}
       >
         {({ dirty: isDirty, isValid }) => (
@@ -58,12 +52,7 @@ export const ResetPasswordForm = () => {
                 <span className={Styles.detail}>{errorMessage}</span>
               </div>
             )}
-            {isResetSuccessful && (
-              <div className={Styles.detailСontainer}>
-                <span className={Styles.detail}>Проверьте ваш email</span>
-              </div>
-            )}
-            {formSchema.map((field) => (
+            {formSchemaSetEmail.map((field) => (
               <div
                 className={Styles.field}
                 key={field.name}
@@ -86,9 +75,9 @@ export const ResetPasswordForm = () => {
               isFullWidth={true}
               appearance="primary"
               type="submit"
-              disabled={!isDirty || !isValid || isResetSuccessful}
+              disabled={!isDirty || !isValid}
             >
-              reset
+              Change email
             </Button>
           </Form>
         )}

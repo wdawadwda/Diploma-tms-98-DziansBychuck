@@ -2,7 +2,7 @@ import { type Book } from '~/entities/books.type';
 import { RatingButton } from '~/shared/ui/RatingButton/RatingButton';
 
 import Style from './listContent.module.scss';
-import { getRandomColor } from './ListContent.utils';
+import { getRandomColor } from './listContent.utils';
 
 export const ListContent = ({ books }: { books: Book[] }) => {
   return (

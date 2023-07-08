@@ -1,4 +1,4 @@
-import { ResetPasswordForm } from '~/features/Form/ResetPasswordForm/resetPassForm';
+import { ResetPasswordForm } from '~/features/Form/ResetPasswordForm/ResetPassForm';
 
 import Styles from '../form.module.scss';
 

@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { Button } from '~/shared/ui/Button/button';
+import { Button } from '~/shared/ui/Button/Button';
 import { useCreateTokensMutation } from '~/store/api/user/user.api';
 import { useAppDispatch, useAppSelector } from '~/store/store.types';
 import { selectTokens } from '~/store/user/user.selectors';
@@ -15,6 +15,7 @@ import Styles from '../form.module.scss';
 import { type FormValues } from '../form.type';
 
 export const SignInForm = () => {
+  const navigate = useNavigate();
   const tokens = useAppSelector(selectTokens);
   const dispatch = useAppDispatch();
   const [createTokensMutation, { isLoading, error }] =
@@ -37,14 +38,12 @@ export const SignInForm = () => {
       console.error('Error:', error);
     }
   };
+
   if (tokens) {
-    return (
-      <Navigate
-        to="/"
-        replace
-      />
-    );
+    window.location.reload();
+    return null;
   }
+
   return (
     <div className={Styles.formСontainer}>
       {error && (
@@ -79,7 +78,12 @@ export const SignInForm = () => {
                 />
               </div>
             ))}
-            <a className={Style.resetLink}>Forgot password ?</a>
+            <a
+              className={Style.resetLink}
+              onClick={() => navigate('/reset_password')}
+            >
+              Forgot password?
+            </a>
             <Button
               isFullWidth={true}
               appearance="primary"

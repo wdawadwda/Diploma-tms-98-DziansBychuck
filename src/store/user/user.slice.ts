@@ -28,8 +28,8 @@ export interface UserSlice {
 }
 
 const getInitialState = (): UserSlice => {
-  const access = localStorage.getItem('@blog/access-token');
-  const refresh = localStorage.getItem('@blog/access-token');
+  const access = localStorage.getItem('@user/access-token');
+  const refresh = localStorage.getItem('@user/refresh-token');
 
   return {
     currentUser: { status: 'idle' },
