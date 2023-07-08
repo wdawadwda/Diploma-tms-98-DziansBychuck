@@ -9,12 +9,13 @@ import { RegistrAuth } from '~/pages/From/RegistrAuth/RegistrAuth';
 import { ResetPassword } from '~/pages/From/ResetPassword/ResetPass';
 import { SuccessPage } from '~/pages/From/SuccessPage/SuccessPage';
 import { HomePage } from '~/pages/Home/Home';
+import { Loader } from '~/pages/Loader/Loader';
 import { NotFoundPage } from '~/pages/NotFound/NotFound';
 import { fetchUser } from '~/store/api/fetchUser/fetchUser.api';
 import { useAppDispatch, useAppSelector } from '~/store/store.types';
 import { selectTokens } from '~/store/user/user.selectors';
 
-import { AccessControlRoute } from './routerUtils';
+import { AccessControlRoute } from './router.utils';
 
 export const routerSchema = createBrowserRouter([
   {
@@ -86,12 +87,6 @@ export const AppRouter = () => {
   }, [dispatch, tokens]);
 
   return (
-    <>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <RouterProvider router={routerSchema} />
-      )}
-    </>
+    <>{isLoading ? <Loader /> : <RouterProvider router={routerSchema} />}</>
   );
 };
