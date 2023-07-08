@@ -1,5 +1,4 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { Navigate } from 'react-router-dom';
 
 import { Button } from '~/shared/ui/Button/Button';
 import { useCreateTokensMutation } from '~/store/api/user/user.api';
@@ -37,14 +36,12 @@ export const SignInForm = () => {
       console.error('Error:', error);
     }
   };
+
   if (tokens) {
-    return (
-      <Navigate
-        to="/"
-        replace
-      />
-    );
+    window.location.reload();
+    return null;
   }
+
   return (
     <div className={Styles.formСontainer}>
       {error && (

@@ -24,6 +24,7 @@
     display: flex;
     @include flexCenter;
     button {
+      cursor: default;
       width: 33.3%;
       &:hover:not(:disabled) svg {
         fill: var(--book--primary-color);
@@ -33,6 +34,7 @@
         cursor: not-allowed;
       }
       svg {
+        cursor: pointer;
         fill: var(--book--bg-color);
         color: var(--book--bg-color);
         stroke: var(--book--primary-color);

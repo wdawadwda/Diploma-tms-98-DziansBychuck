@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { MainLayout } from '~/layouts/MainLayout/MainLayout';
-import { AccountPage } from '~/pages/From/AccountPage/AccountPage';
+import { AccountPage } from '~/pages/Account/AccountPage/AccountPage';
+import { EditProfilePage } from '~/pages/Account/EditProfilePage/EditProfilePage';
 import { NewPassword } from '~/pages/From/NewPassword/NewPass';
 import { RegistrAuth } from '~/pages/From/RegistrAuth/RegistrAuth';
 import { ResetPassword } from '~/pages/From/ResetPassword/ResetPass';
@@ -45,6 +46,10 @@ export const routerSchema = createBrowserRouter([
           {
             path: 'account',
             Component: AccountPage
+          },
+          {
+            path: 'account/editProfile',
+            element: <EditProfilePage />
           }
         ]
       },

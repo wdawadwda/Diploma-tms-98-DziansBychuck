@@ -6,13 +6,14 @@
   flex-direction: column;
   img {
     width: 100%;
+    cursor: pointer;
   }
   .title {
     width: 100%;
     @include bebas;
     font-size: 24px;
     line-height: 32px;
-    // text-align: center;
+    cursor: pointer;
     min-height: 64px;
     color: var(--book--primary-color);
     margin-top: 20px;
@@ -24,7 +25,7 @@
     line-height: 24px;
     color: var(--book--secondary-color);
     min-height: 72px;
-    // text-align: center;
+    cursor: pointer;
     margin-top: 8px;
   }
   .additionally {
@@ -33,6 +34,7 @@
     display: flex;
     justify-content: space-between;
     span {
+      cursor: default;
       @include bebas;
       font-size: 24px;
       line-height: 32px;

@@ -1,17 +1,29 @@
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import { ReactComponent as Heart } from '~/assets/icons/Buttons/heart.svg';
 import { Button } from '~/shared/ui/Button/Button';
+import { selectUser } from '~/store/user/user.selectors';
 
 import { NavLinks } from './navbar.constants';
 import Style from './navbar.module.scss';
 import { SearchBar } from '../../SearchBar/SearchBar';
 import StyleLayout from '../layout.module.scss';
-
+//TODO: Если юзер есть ссылка на account если нет, на registration-authentication
 export const Navbar = () => {
+  const navigate = useNavigate();
+  const user = useSelector(selectUser);
+
+  const handleRedirectToRegistration = () => {
+    navigate('/registration-authentication');
+  };
+  const handleRedirectToAccount = () => {
+    navigate('/account');
+  };
+
   return (
     <div
       className={classNames({
@@ -34,7 +46,14 @@ export const Navbar = () => {
         ></Button>
         <Button
           appearance="secondary2"
-          contentLeft={<FontAwesomeIcon icon={faUser} />}
+          contentLeft={
+            <FontAwesomeIcon
+              icon={faUser}
+              onClick={
+                user ? handleRedirectToAccount : handleRedirectToRegistration
+              }
+            />
+          }
         ></Button>
       </div>
     </div>
