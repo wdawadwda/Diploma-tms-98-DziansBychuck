@@ -8,15 +8,15 @@ export const listenerMiddlewareUser = createListenerMiddleware();
 listenerMiddlewareUser.startListening({
   matcher: createTokens.matchFulfilled,
   effect: ({ payload }) => {
-    localStorage.setItem('@blog/access-token', payload.access);
-    localStorage.setItem('@blog/refresh-token', payload.refresh);
+    localStorage.setItem('@user/access-token', payload.access);
+    localStorage.setItem('@user/refresh-token', payload.refresh);
   }
 });
 
 listenerMiddlewareUser.startListening({
   matcher: userActions.logout.match,
   effect: () => {
-    localStorage.removeItem('@blog/access-token');
-    localStorage.removeItem('@blog/refresh-token');
+    localStorage.removeItem('@user/access-token');
+    localStorage.removeItem('@user/refresh-token');
   }
 });

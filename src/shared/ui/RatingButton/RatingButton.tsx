@@ -1,7 +1,7 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Style from './RatingButton.module.scss';
+import Style from './ratingButton.module.scss';
 import { useRatingButton } from './useRatingButton';
 
 export const RatingButton = () => {
