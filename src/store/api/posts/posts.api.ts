@@ -1,18 +1,14 @@
-import { type BookResponse } from '~/entities/books.type';
 import { baseApi } from '~/store/api';
-export const booksApi = baseApi.injectEndpoints({
+
+import { type BookResponse } from './post.type';
+
+export const { useGetBooksQuery } = baseApi.injectEndpoints({
   overrideExisting: false,
   endpoints: (build) => ({
-    getBooks: build.query<BookResponse, number>({
-      query: (page) => ({
-        url: `/new`,
-        params: {
-          offset: (page - 1) * 9,
-          limit: 3
-        }
+    getBooks: build.query<BookResponse, void>({
+      query: () => ({
+        url: '/new'
       })
     })
   })
 });
-
-export const { useGetBooksQuery } = booksApi;
