@@ -28,7 +28,7 @@ export const ListContent = ({ books }: { books: Book[] }) => {
           </span>
           <div className={Style.additionally}>
             <span className={Style.price}>{book.price || 'No Price'}</span>
-            <RatingButton />
+            <RatingButton isbn13={book.isbn13} />
           </div>
           <a
             className={Style.more}

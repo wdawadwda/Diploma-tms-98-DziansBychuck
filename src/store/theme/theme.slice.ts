@@ -8,7 +8,7 @@ const getInitialState = (): ThemeState => ({
   isLight: true
 });
 
-export const ThemeSlice = createSlice({
+export const themeSlice = createSlice({
   name: 'theme',
   initialState: getInitialState,
   reducers: {
@@ -20,4 +20,4 @@ export const ThemeSlice = createSlice({
   }
 });
 
-export const { actions: themeActions } = ThemeSlice;
+export const { actions: themeActions } = themeSlice;

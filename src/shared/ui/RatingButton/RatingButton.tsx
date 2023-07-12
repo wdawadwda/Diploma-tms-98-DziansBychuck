@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Style from './ratingButton.module.scss';
 import { useRatingButton } from './useRatingButton';
 
-export const RatingButton = () => {
+export const RatingButton = ({ isbn13 }: { isbn13: string }) => {
   const {
     hoveredRating,
     selectedRating,
     handleMouseEnter,
     handleMouseLeave,
     handleClick
-  } = useRatingButton();
+  } = useRatingButton(isbn13);
 
   const stars = Array.from({ length: 5 }, (_, index) => {
     const starRating = index + 1;

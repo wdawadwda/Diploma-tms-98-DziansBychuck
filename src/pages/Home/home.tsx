@@ -1,14 +1,26 @@
+import { useEffect } from 'react';
+
+import { useDispatch } from 'react-redux';
+
 import { SubscribeForm } from '~/features/Form/SubscribeForm/SubscribeForm';
 import { ListContent } from '~/features/ListContent/ListContent';
 import { useGetBooksQuery } from '~/store/api/posts/posts.api';
+import { bookActions } from '~/store/book/book.slice';
 
 import Style from './home.module.scss';
 import Styles from '../page.module.scss';
 
-const page = 1;
+const total = 12;
 export const HomePage = () => {
-  const { data } = useGetBooksQuery(page);
-  const books = data?.books ?? null;
+  const dispatch = useDispatch();
+  const { data } = useGetBooksQuery();
+  const books = data?.books?.slice(0, total) ?? null;
+
+  useEffect(() => {
+    if (books) {
+      dispatch(bookActions.setBooks(books));
+    }
+  }, [books, dispatch]);
 
   return (
     <>

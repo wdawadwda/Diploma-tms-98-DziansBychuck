@@ -1,9 +1,3 @@
-export interface BookResponse {
-  total: string;
-  page: string;
-  books: Book[];
-}
-
 export interface Book {
   title: string;
   subtitle: string;
@@ -11,4 +5,5 @@ export interface Book {
   price: string;
   image: string;
   url: string;
+  selectedRating?: number;
 }
