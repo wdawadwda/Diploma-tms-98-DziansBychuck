@@ -1,7 +1,6 @@
 @import '~/mixins.scss';
 .container {
-  --book--bg-color: #f4eefd;
-  background-color: var(--book--bg-color);
+  background-color: var(--book--bg-error-color);
   padding: 56px 64px;
   margin-top: 72px;
   > h3 {

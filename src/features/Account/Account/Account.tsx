@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 
 import { Button } from '~/shared/ui/Button/Button';
+import { ThemeSwitcher } from '~/shared/ui/ThemeSwitcher/ThemeSwitcher';
 
 import Style from './account.module.scss';
 import { useAccountSettings } from './useAccount';
@@ -31,10 +32,7 @@ export const Account = () => {
             <span>Ваш Email: {user.email}</span>
           </div>
           <div className={Style.container}>
-            <div>
-              <Button appearance="primary">light</Button>
-              <Button appearance="primary">dark</Button>
-            </div>
+            <ThemeSwitcher />
             <Button
               appearance="primary"
               onClick={handleUpdateProfile}

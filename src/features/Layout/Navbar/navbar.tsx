@@ -12,6 +12,7 @@ import { NavLinks } from './navbar.constants';
 import Style from './navbar.module.scss';
 import { SearchBar } from '../../SearchBar/SearchBar';
 import StyleLayout from '../layout.module.scss';
+
 export const Navbar = () => {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
