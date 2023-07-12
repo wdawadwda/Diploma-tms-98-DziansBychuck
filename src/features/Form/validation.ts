@@ -19,6 +19,10 @@ const commonPasswords = [
   'sunshine'
 ];
 
+export const searchValidationSchema = Yup.string()
+  .required('Введите значение для поиска')
+  .min(1, 'Минимальная длина запроса должна быть не менее 3 символов');
+
 export const emailValidationSchema = Yup.string()
   .email('Неверный адрес электронной почты')
   .required('Заполните поле');

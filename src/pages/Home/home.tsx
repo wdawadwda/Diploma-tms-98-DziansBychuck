@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { SubscribeForm } from '~/features/Form/SubscribeForm/SubscribeForm';
 import { ListContent } from '~/features/ListContent/ListContent';
-import { useGetBooksQuery } from '~/store/api/posts/posts.api';
+import { useGetBooksQuery } from '~/store/api/book/book.api';
 import { bookActions } from '~/store/book/book.slice';
 
 import Style from './home.module.scss';
