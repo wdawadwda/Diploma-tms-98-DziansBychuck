@@ -1,0 +1,32 @@
+@import '~/mixins.scss';
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 50px;
+  border-top: 1px solid var(--book--secondary2-color);
+  margin-top: 72px;
+}
+.page {
+  width: 100%;
+  max-width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.currentPage {
+  cursor: default;
+  color: var(--book--secondary-color);
+}
+
+.page {
+  cursor: pointer;
+  color: var(--book--text-color);
+}
+.default {
+  cursor: default;
+  color: var(--book--text-color);
+}

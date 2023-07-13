@@ -13,6 +13,7 @@ if (storedRatingsString) {
 
 const initialState: BooksState = {
   books: [],
+  total: '',
   ratings: storedRatings
 };
 
@@ -22,6 +23,9 @@ export const booksSlice = createSlice({
   reducers: {
     setBooks: (state, action: PayloadAction<Book[]>) => {
       state.books = action.payload;
+    },
+    setTotal: (state, action: PayloadAction<string>) => {
+      state.total = action.payload;
     },
     setBookSelectedRating: (
       state,

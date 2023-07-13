@@ -11,5 +11,6 @@ export interface Rating {
 
 export interface BooksState {
   books: Book[];
+  total?: string;
   ratings: Rating[];
 }

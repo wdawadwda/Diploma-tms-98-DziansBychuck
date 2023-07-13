@@ -5,13 +5,13 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { MainLayout } from '~/layouts/MainLayout/MainLayout';
 import { AccountPage } from '~/pages/Account/AccountPage/AccountPage';
 import { EditProfilePage } from '~/pages/Account/EditProfilePage/EditProfilePage';
-import { NewPassword } from '~/pages/From/NewPassword/NewPass';
 import { RegistrAuth } from '~/pages/From/RegistrAuth/RegistrAuth';
 import { ResetPassword } from '~/pages/From/ResetPassword/ResetPass';
 import { SuccessPage } from '~/pages/From/SuccessPage/SuccessPage';
 import { HomePage } from '~/pages/Home/Home';
 import { Loader } from '~/pages/Loader/Loader';
 import { NotFoundPage } from '~/pages/NotFound/NotFound';
+import { SearchPage } from '~/pages/SearchPage/SearchPage';
 import { fetchUser } from '~/store/api/fetchUser/fetchUser.api';
 import { useAppDispatch, useAppSelector } from '~/store/store.types';
 import { selectTokens } from '~/store/user/user.selectors';
@@ -58,8 +58,22 @@ export const routerSchema = createBrowserRouter([
         ]
       },
       {
-        path: `new_password`,
-        element: <NewPassword />
+        path: 'search',
+        children: [
+          {
+            path: '',
+            element: <SearchPage />
+          },
+          {
+            path: ':query',
+            children: [
+              {
+                path: ':page',
+                element: <SearchPage />
+              }
+            ]
+          }
+        ]
       },
       {
         path: '*',
