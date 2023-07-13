@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { baseApi, userApi } from './api';
 import { rootReducer } from './rootReduser';
 import { listenerMiddlewareTheme } from './theme/theme.listeners';
+import { themeActions } from './theme/theme.slice';
 import { listenerMiddlewareUser } from './user/user.listeners';
 
 export const store = configureStore({
@@ -15,3 +16,4 @@ export const store = configureStore({
       .prepend(listenerMiddlewareTheme.middleware),
   devTools: import.meta.env.DEV
 });
+store.dispatch(themeActions.setThemeFromLocalStorage());
