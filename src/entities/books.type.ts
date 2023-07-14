@@ -1,3 +1,5 @@
+import { type BookDetailsResponse } from '~/store/api/book/book.type';
+
 export interface Book {
   title: string;
   subtitle: string;
@@ -7,3 +9,5 @@ export interface Book {
   url: string;
   selectedRating?: number;
 }
+
+export type BookDetail = BookDetailsResponse;

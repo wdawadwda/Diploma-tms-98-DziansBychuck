@@ -1,7 +1,7 @@
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { BookDetailContent } from '~/features/BookDetailContent/BookDetailContent';
+import { BookDetailContent } from '~/features/Content/BookDetailContent/BookDetailContent';
 import { Button } from '~/shared/ui/Button/Button';
 
 import Style from './bookDetail.module.scss';

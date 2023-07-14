@@ -1,19 +1,20 @@
 import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { ReactComponent as Heart } from '~/assets/icons/Buttons/heart.svg';
 import { ReactComponent as Facebook } from '~/assets/icons/facebook.svg';
 import { ReactComponent as Twitter } from '~/assets/icons/twitter.svg';
+import { type BookDetail } from '~/entities/books.type';
 import { getRandomColor } from '~/entities/utils';
 import { Button } from '~/shared/ui/Button/Button';
+import { LikeButton } from '~/shared/ui/LikeButton/Like';
 import { RatingButton } from '~/shared/ui/RatingButton/RatingButton';
 import { Tabs } from '~/shared/ui/Tabs/Tabs';
 import { useTabs } from '~/shared/ui/Tabs/useTabs';
 
 import Style from './bookDetCont.module.scss';
-import { type FormState, type BookDetail, tabs } from './bookDetCont.type';
+import { type FormState, tabs } from './bookDetCont.type';
 import { getActiveForm } from './bookDetCont.utils';
-import { SubscribeForm } from '../Form/SubscribeForm/SubscribeForm';
+import { SubscribeForm } from '../../Form/SubscribeForm/SubscribeForm';
 
 export const BookDetailContent = ({
   bookDetail
@@ -21,7 +22,6 @@ export const BookDetailContent = ({
   bookDetail: BookDetail;
 }) => {
   const { activeTab, handleTabClick } = useTabs<FormState>(tabs[0]);
-
   const activeForm: JSX.Element | null = getActiveForm(activeTab, bookDetail);
 
   return (
@@ -36,12 +36,7 @@ export const BookDetailContent = ({
             src={bookDetail.image}
             className={Style.image}
           />
-          <Button
-            isFullWidth={false}
-            appearance="secondary"
-            className={Style.imageButton}
-            contentLeft={<Heart />}
-          ></Button>
+          <LikeButton bookDetail={bookDetail} />
         </div>
         <div className={Style.detail}>
           <div className={Style.priceWrapper}>

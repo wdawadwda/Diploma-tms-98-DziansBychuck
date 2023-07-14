@@ -1,4 +1,4 @@
-import { ListContent } from '~/features/ListContent/ListContent';
+import { ListContent } from '~/features/Content/ListContent/ListContent';
 import { Pagination } from '~/shared/ui/Pagination/Pag';
 
 import Style from './searchPage.module.scss';
