@@ -1,0 +1,26 @@
+@import '~/mixins.scss';
+
+.bookDetailContainer {
+  --book--width: 35px;
+  --book--height: 35px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  .btnWrapper {
+    width: var(--book--width);
+    height: var(--book--height);
+    button {
+      width: var(--book--width);
+      height: var(--book--height);
+      padding: 0;
+      div {
+        width: var(--book--width);
+        height: var(--book--height);
+        svg {
+          width: var(--book--width);
+          height: auto;
+        }
+      }
+    }
+  }
+}

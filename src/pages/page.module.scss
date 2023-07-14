@@ -1,13 +1,22 @@
 @import '~/mixins.scss';
-.title{
+
+.title {
   font-size: 56px;
   line-height: 64px;
   @include bebas;
   margin-bottom: 48px;
 }
 .loading {
-    min-height: 50vh;
-    display: flex;
-    @include flexCenter;
-    @extend .title;
-  }
+  min-height: 50vh;
+  display: flex;
+  @include flexCenter;
+  @extend .title;
+}
+
+.error {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  @include flexCenter;
+  @extend .title;
+}

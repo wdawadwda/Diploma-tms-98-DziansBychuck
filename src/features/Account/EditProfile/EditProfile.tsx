@@ -1,4 +1,4 @@
-import { faAnglesLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
@@ -26,7 +26,7 @@ export const EditProfile = () => {
       <div className={Style.back}>
         <Button
           appearance="secondary2"
-          contentLeft={<FontAwesomeIcon icon={faAnglesLeft} />}
+          contentLeft={<FontAwesomeIcon icon={faArrowLeft} />}
           onClick={handleGoToAccount}
         ></Button>
       </div>
