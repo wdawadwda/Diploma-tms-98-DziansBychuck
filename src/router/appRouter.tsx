@@ -6,6 +6,7 @@ import { MainLayout } from '~/layouts/MainLayout/MainLayout';
 import { AccountPage } from '~/pages/Account/AccountPage/AccountPage';
 import { EditProfilePage } from '~/pages/Account/EditProfilePage/EditProfilePage';
 import { BookDetail } from '~/pages/BookDetail/BookDetail';
+import { FavoritesPage } from '~/pages/Favorites/FavoritesPage';
 import { RegistrAuth } from '~/pages/From/RegistrAuth/RegistrAuth';
 import { ResetPassword } from '~/pages/From/ResetPassword/ResetPass';
 import { SuccessPage } from '~/pages/From/SuccessPage/SuccessPage';
@@ -55,6 +56,10 @@ export const routerSchema = createBrowserRouter([
           {
             path: 'account/editProfile',
             element: <EditProfilePage />
+          },
+          {
+            path: 'favorites',
+            element: <FavoritesPage />
           }
         ]
       },

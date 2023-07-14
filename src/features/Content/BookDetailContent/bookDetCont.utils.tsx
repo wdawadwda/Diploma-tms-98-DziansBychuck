@@ -1,4 +1,6 @@
-import { type BookDetail, type FormState } from './bookDetCont.type';
+import { type BookDetail } from '~/entities/books.type';
+
+import { type FormState } from './bookDetCont.type';
 
 export function getActiveForm(activeTab: FormState, bookDetail: BookDetail) {
   switch (activeTab) {

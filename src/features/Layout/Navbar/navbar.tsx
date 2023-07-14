@@ -20,8 +20,13 @@ export const Navbar = () => {
   const handleRedirectToRegistration = () => {
     navigate('/registration-authentication');
   };
+
   const handleRedirectToAccount = () => {
     navigate('/account');
+  };
+
+  const handleRedirectToFavorites = () => {
+    navigate('/favorites');
   };
 
   return (
@@ -39,6 +44,9 @@ export const Navbar = () => {
         <Button
           appearance="secondary2"
           contentLeft={<Heart />}
+          onClick={
+            user ? handleRedirectToFavorites : handleRedirectToRegistration
+          }
         ></Button>
         <Button
           appearance="secondary2"

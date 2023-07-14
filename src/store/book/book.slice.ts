@@ -1,6 +1,6 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { type Book } from '~/entities/books.type';
+import { type BookDetail, type Book } from '~/entities/books.type';
 
 import { type BooksState, type Rating } from './book.type';
 
@@ -11,10 +11,20 @@ if (storedRatingsString) {
   storedRatings = JSON.parse(storedRatingsString) as Rating[];
 }
 
+let storedLikes: { [isbn13: string]: BookDetail }[] = [];
+
+const storedLikesString = localStorage.getItem('bookLikes');
+if (storedLikesString) {
+  storedLikes = JSON.parse(storedLikesString) as {
+    [isbn13: string]: BookDetail;
+  }[];
+}
+
 const initialState: BooksState = {
   books: [],
   total: '',
-  ratings: storedRatings
+  ratings: storedRatings,
+  likes: storedLikes
 };
 
 export const booksSlice = createSlice({
@@ -44,6 +54,18 @@ export const booksSlice = createSlice({
         updatedRatings.push({ isbn13, selectedRating });
         localStorage.setItem('bookRatings', JSON.stringify(updatedRatings));
       }
+    },
+    setBookLiked: (state, action: PayloadAction<BookDetail>) => {
+      const book = action.payload;
+      const likedBookIndex = state.likes.findIndex(
+        (likedBook) => likedBook[book.isbn13]
+      );
+      if (likedBookIndex === -1) {
+        state.likes.push({ [book.isbn13]: book });
+      } else {
+        state.likes.splice(likedBookIndex, 1);
+      }
+      localStorage.setItem('bookLikes', JSON.stringify(state.likes));
     }
   }
 });

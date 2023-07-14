@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 
+import { ListContent } from '~/features/Content/ListContent/ListContent';
 import { SubscribeForm } from '~/features/Form/SubscribeForm/SubscribeForm';
-import { ListContent } from '~/features/ListContent/ListContent';
 import { useGetBooksQuery } from '~/store/api/book/book.api';
 import { bookActions } from '~/store/book/book.slice';
 
