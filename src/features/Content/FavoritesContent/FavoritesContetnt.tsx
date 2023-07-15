@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import { getRandomColor } from '~/entities/utils';
+import { PopularBooks } from '~/features/PopularBooks/PopularBooks';
 import { LikeButton } from '~/shared/ui/LikeButton/Like';
 import { RatingButton } from '~/shared/ui/RatingButton/RatingButton';
 import { type RootState } from '~/store/store.types';
@@ -41,6 +42,7 @@ export const FavoritesContetnt = () => {
           </div>
         </div>
       ))}
+      <PopularBooks />
     </div>
   );
 };

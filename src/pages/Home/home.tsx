@@ -7,10 +7,10 @@ import { SubscribeForm } from '~/features/Form/SubscribeForm/SubscribeForm';
 import { useGetBooksQuery } from '~/store/api/book/book.api';
 import { bookActions } from '~/store/book/book.slice';
 
+import { total } from './home.const';
 import Style from './home.module.scss';
 import Styles from '../page.module.scss';
 
-const total = 12;
 export const HomePage = () => {
   const dispatch = useDispatch();
   const { data } = useGetBooksQuery();
