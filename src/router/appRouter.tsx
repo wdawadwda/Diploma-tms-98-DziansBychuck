@@ -11,7 +11,7 @@ import { FavoritesPage } from '~/pages/Favorites/FavoritesPage';
 import { RegistrAuth } from '~/pages/From/RegistrAuth/RegistrAuth';
 import { ResetPassword } from '~/pages/From/ResetPassword/ResetPass';
 import { SuccessPage } from '~/pages/From/SuccessPage/SuccessPage';
-import { HomePage } from '~/pages/Home/Home';
+import { HomePage } from '~/pages/Home/HomePage';
 import { Loader } from '~/pages/Loader/Loader';
 import { NotFoundPage } from '~/pages/NotFound/NotFound';
 import { SearchPage } from '~/pages/SearchPage/SearchPage';
