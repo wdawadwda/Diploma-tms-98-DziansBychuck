@@ -11,6 +11,7 @@ import { VAT } from './cartContent.const';
 import Style from './cartContetn.module.scss';
 import {
   calculateTotalAmount,
+  calculateTotalPrice,
   calculateTotalWithVAT
 } from './сartContetnt.utils';
 
@@ -86,7 +87,9 @@ export const CartContetnt = () => {
           </div>
           <div className={Style.dell}>
             <div className={Style.dellInner}>
-              <div className={Style.price}>{book.price}</div>
+              <div className={Style.price}>{`$ ${calculateTotalPrice(
+                book
+              )}`}</div>
               <Button
                 appearance="secondary2"
                 isFullWidth={false}

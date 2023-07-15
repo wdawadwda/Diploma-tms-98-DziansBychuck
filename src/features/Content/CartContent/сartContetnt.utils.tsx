@@ -15,3 +15,9 @@ export const calculateTotalWithVAT = (
   const totalWithVAT = totalAmount + vat;
   return `$ ${totalWithVAT.toFixed(2)}`;
 };
+
+export const calculateTotalPrice = (book: BookCartDetail): string => {
+  const priceWithoutSymbol = book.price.replace('$', '');
+  const price = Number.parseFloat(priceWithoutSymbol);
+  return (price * book.quantity).toFixed(2);
+};
