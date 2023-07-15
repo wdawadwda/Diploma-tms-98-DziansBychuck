@@ -29,6 +29,10 @@ export const Navbar = () => {
     navigate('/favorites');
   };
 
+  const handleRedirectToCart = () => {
+    navigate('/cart');
+  };
+
   return (
     <div
       className={classNames({
@@ -51,6 +55,7 @@ export const Navbar = () => {
         <Button
           appearance="secondary2"
           contentLeft={<FontAwesomeIcon icon={faCartShopping} />}
+          onClick={user ? handleRedirectToCart : handleRedirectToRegistration}
         ></Button>
         <Button
           appearance="secondary2"

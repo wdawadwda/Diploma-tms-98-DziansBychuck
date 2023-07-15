@@ -8,5 +8,6 @@ listenerMiddlewareBook.startListening({
   matcher: userActions.logout.match,
   effect: () => {
     localStorage.removeItem('bookLikes');
+    localStorage.removeItem('bookCart');
   }
 });

@@ -6,6 +6,7 @@ import { MainLayout } from '~/layouts/MainLayout/MainLayout';
 import { AccountPage } from '~/pages/Account/AccountPage/AccountPage';
 import { EditProfilePage } from '~/pages/Account/EditProfilePage/EditProfilePage';
 import { BookDetail } from '~/pages/BookDetail/BookDetail';
+import { CartPage } from '~/pages/Cart/CartPage';
 import { FavoritesPage } from '~/pages/Favorites/FavoritesPage';
 import { RegistrAuth } from '~/pages/From/RegistrAuth/RegistrAuth';
 import { ResetPassword } from '~/pages/From/ResetPassword/ResetPass';
@@ -60,6 +61,10 @@ export const routerSchema = createBrowserRouter([
           {
             path: 'favorites',
             element: <FavoritesPage />
+          },
+          {
+            path: 'cart',
+            element: <CartPage />
           }
         ]
       },
