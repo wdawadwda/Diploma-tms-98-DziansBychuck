@@ -7,14 +7,14 @@ import { SubscribeForm } from '~/features/Form/SubscribeForm/SubscribeForm';
 import { useGetBooksQuery } from '~/store/api/book/book.api';
 import { bookActions } from '~/store/book/book.slice';
 
-import { total } from './home.const';
 import Style from './home.module.scss';
 import Styles from '../page.module.scss';
 
+const totalBooks = 12;
 export const HomePage = () => {
   const dispatch = useDispatch();
   const { data } = useGetBooksQuery();
-  const books = data?.books?.slice(0, total) ?? null;
+  const books = data?.books?.slice(0, totalBooks) ?? null;
 
   useEffect(() => {
     if (books) {
