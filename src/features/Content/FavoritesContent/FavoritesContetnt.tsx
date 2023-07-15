@@ -42,7 +42,10 @@ export const FavoritesContetnt = () => {
           </div>
         </div>
       ))}
-      <PopularBooks />
+      <PopularBooks
+        startIndex={0}
+        title={`Popular Books`}
+      />
     </div>
   );
 };
