@@ -8,9 +8,7 @@ import { emailValidationSchema } from '../validation';
 
 export const formikPropertiesSubscribe = {
   initialValues: {
-    email: '',
-    isValid: false,
-    dirty: false
+    email: ''
   },
   validationSchema: Yup.object({
     email: emailValidationSchema

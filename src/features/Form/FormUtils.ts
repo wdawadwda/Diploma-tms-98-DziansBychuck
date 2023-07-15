@@ -4,9 +4,7 @@ export const createFormikProperties = (
   fields: Record<string, Yup.StringSchema> = {}
 ) => {
   const initialValues = {
-    ...fields,
-    isValid: false,
-    dirty: false
+    ...fields
   };
 
   const validationSchema: Record<string, Yup.StringSchema> = {};
