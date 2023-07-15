@@ -1,5 +1,6 @@
 import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDispatch } from 'react-redux';
 
 import { ReactComponent as Facebook } from '~/assets/icons/facebook.svg';
 import { ReactComponent as Twitter } from '~/assets/icons/twitter.svg';
@@ -10,6 +11,7 @@ import { LikeButton } from '~/shared/ui/LikeButton/Like';
 import { RatingButton } from '~/shared/ui/RatingButton/RatingButton';
 import { Tabs } from '~/shared/ui/Tabs/Tabs';
 import { useTabs } from '~/shared/ui/Tabs/useTabs';
+import { bookActions } from '~/store/book/book.slice';
 
 import Style from './bookDetCont.module.scss';
 import { type FormState, tabs } from './bookDetCont.type';
@@ -23,6 +25,12 @@ export const BookDetailContent = ({
 }) => {
   const { activeTab, handleTabClick } = useTabs<FormState>(tabs[0]);
   const activeForm: JSX.Element | null = getActiveForm(activeTab, bookDetail);
+
+  const dispatch = useDispatch();
+
+  const handleAddToCartClick = () => {
+    dispatch(bookActions.setBookCart([bookDetail]));
+  };
 
   return (
     <div className={Style.bookDetailContentContainer}>
@@ -61,6 +69,7 @@ export const BookDetailContent = ({
             <Button
               isFullWidth={true}
               appearance="primary"
+              onClick={handleAddToCartClick}
             >
               add to cart
             </Button>

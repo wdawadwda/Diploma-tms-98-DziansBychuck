@@ -1,5 +1,6 @@
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
 
 import { BookDetailContent } from '~/features/Content/BookDetailContent/BookDetailContent';
 import { Button } from '~/shared/ui/Button/Button';
@@ -9,7 +10,13 @@ import { useBookDetail } from './useBookDetail';
 import Styles from '../page.module.scss';
 
 export const BookDetail = () => {
-  const { data, customError, isLoading, goBack } = useBookDetail();
+  const { data, customError, isLoading } = useBookDetail();
+
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   return (
     <div className={Style.bookDetailContainer}>

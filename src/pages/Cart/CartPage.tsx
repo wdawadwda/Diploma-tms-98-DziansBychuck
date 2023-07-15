@@ -2,15 +2,14 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 
-import { FavoritesContetnt } from '~/features/Content/FavoritesContent/FavoritesContetnt';
+import { CartContetnt } from '~/features/Content/CartContent/CartContetnt';
 import { Button } from '~/shared/ui/Button/Button';
 
-import Style from './favoritesPage.module.scss';
+import Style from './cartPage.module.scss';
 import Styles from '../page.module.scss';
 
-export const FavoritesPage = () => {
+export const CartPage = () => {
   const navigate = useNavigate();
-
   const goBack = () => {
     navigate(-1);
   };
@@ -24,8 +23,8 @@ export const FavoritesPage = () => {
           contentLeft={<FontAwesomeIcon icon={faArrowLeft} />}
         ></Button>
       </div>
-      <div className={Styles.title}>Favorites</div>
-      <FavoritesContetnt />
+      <div className={Styles.title}>Your cart</div>
+      <CartContetnt />
     </div>
   );
 };

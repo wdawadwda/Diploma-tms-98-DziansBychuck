@@ -14,5 +14,11 @@ export interface BooksState {
   total?: string;
   ratings: Rating[];
   likes: LikedBooks;
+  bookCart: BookCartDetail[];
 }
+
 export type LikedBooks = Array<{ [isbn13: string]: BookDetail }>;
+
+export interface BookCartDetail extends BookDetail {
+  quantity: number;
+}
