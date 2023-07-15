@@ -17,7 +17,7 @@ export const ListContent = ({ books }: { books: Book[] }) => {
     <>
       {books.map((book) => (
         <div
-          className={Style.contentContsainer}
+          className={Style.contentContainer}
           key={book.isbn13}
         >
           <img

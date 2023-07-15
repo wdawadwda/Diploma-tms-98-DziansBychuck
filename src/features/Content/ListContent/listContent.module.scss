@@ -1,6 +1,6 @@
 @import '~/mixins.scss';
 
-.contentContsainer {
+.contentContainer {
   display: flex;
   @include flexCenter;
   flex-direction: column;

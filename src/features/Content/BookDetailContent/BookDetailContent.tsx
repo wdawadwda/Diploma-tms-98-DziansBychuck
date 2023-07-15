@@ -6,6 +6,7 @@ import { ReactComponent as Facebook } from '~/assets/icons/facebook.svg';
 import { ReactComponent as Twitter } from '~/assets/icons/twitter.svg';
 import { type BookDetail } from '~/entities/books.type';
 import { getRandomColor } from '~/entities/utils';
+import { PopularBooks } from '~/features/PopularBooks/PopularBooks';
 import { Button } from '~/shared/ui/Button/Button';
 import { LikeButton } from '~/shared/ui/LikeButton/Like';
 import { RatingButton } from '~/shared/ui/RatingButton/RatingButton';
@@ -103,6 +104,7 @@ export const BookDetailContent = ({
         ></Button>
       </div>
       <SubscribeForm />
+      <PopularBooks />
     </div>
   );
 };
