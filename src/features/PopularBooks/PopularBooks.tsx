@@ -7,33 +7,37 @@ import { Button } from '~/shared/ui/Button/Button';
 import { useGetBooksQuery } from '~/store/api/book/book.api';
 
 import Style from './popelarBooks.module.scss';
+import { type PopularBooksProperties } from './popularBooks.type';
 import { ListContent } from '../Content/ListContent/ListContent';
 
-export const PopularBooks = () => {
+export const PopularBooks = ({ startIndex, title }: PopularBooksProperties) => {
   const { data } = useGetBooksQuery();
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(startIndex);
   const books = data?.books ?? [];
   const displayedBooks = books.slice(currentIndex, currentIndex + 3);
 
   const handleNext = () => {
-    if (currentIndex + 3 >= books.length) {
-      setCurrentIndex(0);
+    const nextIndex = currentIndex + 3;
+    if (nextIndex >= books.length) {
+      setCurrentIndex(startIndex);
     } else {
-      setCurrentIndex(currentIndex + 3);
+      setCurrentIndex(nextIndex);
     }
   };
 
   const handlePrevious = () => {
-    if (currentIndex === 0) {
-      setCurrentIndex(books.length - 3);
+    const previousIndex = currentIndex - 3;
+    if (previousIndex < startIndex) {
+      const lastPageStartIndex = Math.floor((books.length - 1) / 3) * 3;
+      setCurrentIndex(lastPageStartIndex);
     } else {
-      setCurrentIndex(currentIndex - 3);
+      setCurrentIndex(previousIndex);
     }
   };
 
   return (
     <>
-      <span className={Style.title}>Popular Books</span>
+      <span className={Style.title}>{title}</span>
       <div className={Style.prevNext}>
         <Button
           appearance="secondary2"

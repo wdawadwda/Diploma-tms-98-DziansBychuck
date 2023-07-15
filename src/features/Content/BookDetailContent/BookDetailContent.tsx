@@ -104,7 +104,10 @@ export const BookDetailContent = ({
         ></Button>
       </div>
       <SubscribeForm />
-      <PopularBooks />
+      <PopularBooks
+        startIndex={0}
+        title={`Similar Books`}
+      />
     </div>
   );
 };

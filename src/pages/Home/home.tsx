@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { ListContent } from '~/features/Content/ListContent/ListContent';
 import { SubscribeForm } from '~/features/Form/SubscribeForm/SubscribeForm';
+import { PopularBooks } from '~/features/PopularBooks/PopularBooks';
 import { useGetBooksQuery } from '~/store/api/book/book.api';
 import { bookActions } from '~/store/book/book.slice';
 
@@ -24,7 +25,7 @@ export const HomePage = () => {
 
   return (
     <>
-      <span className={Styles.title}>New Releases Books</span>
+      <span className={Styles.title}>New releases books</span>
       {books === null ? (
         <div className={Styles.loading}>Loading...</div>
       ) : (
@@ -33,6 +34,10 @@ export const HomePage = () => {
         </div>
       )}
       <SubscribeForm />
+      <PopularBooks
+        startIndex={12}
+        title={`More new releases books`}
+      />
     </>
   );
 };
