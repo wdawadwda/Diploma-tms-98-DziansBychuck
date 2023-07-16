@@ -74,7 +74,13 @@ export const BookDetailContent = ({
             >
               add to cart
             </Button>
-            <a href={bookDetail.url}>Preview book</a>
+            <a
+              href={bookDetail.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Preview book
+            </a>
           </div>
         </div>
       </div>
