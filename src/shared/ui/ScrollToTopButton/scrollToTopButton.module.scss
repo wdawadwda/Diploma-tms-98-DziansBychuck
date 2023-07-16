@@ -6,9 +6,22 @@
   bottom: 15rem;
   button {
     border-radius: 50%;
+    background-color: var(--book--svg-primary-color);
+    opacity: 0.2;
+    &:hover {
+      opacity: 1;
+    }
     div {
       width: auto;
       height: auto;
     }
+  }
+}
+
+@media (max-width: 1450px) {
+  .scrollToTopButtonWrapper {
+    position: fixed;
+    right: 1rem;
+    bottom: 15rem;
   }
 }

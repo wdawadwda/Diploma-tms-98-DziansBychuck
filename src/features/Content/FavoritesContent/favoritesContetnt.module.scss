@@ -3,7 +3,6 @@
 .favoritesContainer {
   display: flex;
   flex-direction: column;
-
   .bookContainer {
     display: flex;
     justify-content: space-between;
@@ -14,13 +13,11 @@
       display: flex;
       width: 30%;
     }
-
     .contentCenter {
       display: flex;
       flex-direction: column;
       justify-content: center;
       width: 50%;
-
       .title {
         @include bebas;
         font-size: 24px;
@@ -34,7 +31,6 @@
         margin-bottom: 25px;
         color: var(--book--secondary-color);
       }
-
       .priceWrapper {
         display: flex;
         justify-content: space-between;
@@ -52,6 +48,25 @@
 
       button {
         background-color: var(--book--svg-stroke-primary-color);
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .favoritesContainer {
+    .bookContainer {
+      flex-direction: column;
+      img {
+        display: flex;
+        width: 100%;
+      }
+      .contentCenter {
+        width: 100%;
+      }
+
+      .like {
+        width: 100%;
       }
     }
   }

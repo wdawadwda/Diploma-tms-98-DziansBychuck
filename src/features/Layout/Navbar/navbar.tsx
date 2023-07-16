@@ -1,10 +1,18 @@
-import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faCartShopping,
+  faUser
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { ReactComponent as Heart } from '~/assets/icons/Buttons/heart.svg';
+import { useNav } from '~/entities/use/useNav';
+import { useAside } from '~/entities/use/useShowAside';
+import { useWindowSize } from '~/entities/use/useWindowSize';
+import { AsideMenu } from '~/shared/ui/AsideMenu/AsideMenu';
 import { Button } from '~/shared/ui/Button/Button';
 import { selectUser } from '~/store/user/user.selectors';
 
@@ -14,24 +22,18 @@ import { SearchBar } from '../../SearchBar/SearchBar';
 import StyleLayout from '../layout.module.scss';
 
 export const Navbar = () => {
-  const navigate = useNavigate();
   const user = useSelector(selectUser);
+  const {
+    handleRedirectToRegistration,
+    handleRedirectToAccount,
+    handleRedirectToFavorites,
+    handleRedirectToCart
+  } = useNav();
 
-  const handleRedirectToRegistration = () => {
-    navigate('/registration-authentication');
-  };
+  const { width } = useWindowSize();
+  const isSmallScreen = width <= 1200;
 
-  const handleRedirectToAccount = () => {
-    navigate('/account');
-  };
-
-  const handleRedirectToFavorites = () => {
-    navigate('/favorites');
-  };
-
-  const handleRedirectToCart = () => {
-    navigate('/cart');
-  };
+  const { isShowAside, toggleAside } = useAside(false);
 
   return (
     <div
@@ -41,34 +43,64 @@ export const Navbar = () => {
       })}
     >
       <NavLink to={`${NavLinks[0].path}`}>{`${NavLinks[0].title}`}</NavLink>
-      <div className={Style.formContainer}>
-        <SearchBar />
-      </div>
+
+      {!isSmallScreen && (
+        <div className={Style.formContainer}>
+          <div className={Style.formContainer}>
+            <SearchBar />
+          </div>
+        </div>
+      )}
+
       <div className={Style.iconContainer}>
-        <Button
-          appearance="secondary2"
-          contentLeft={<Heart />}
-          onClick={
-            user ? handleRedirectToFavorites : handleRedirectToRegistration
-          }
-        ></Button>
-        <Button
-          appearance="secondary2"
-          contentLeft={<FontAwesomeIcon icon={faCartShopping} />}
-          onClick={user ? handleRedirectToCart : handleRedirectToRegistration}
-        ></Button>
-        <Button
-          appearance="secondary2"
-          contentLeft={
-            <FontAwesomeIcon
-              icon={faUser}
+        {isSmallScreen ? (
+          <>
+            <Button
+              appearance="secondary2"
+              contentLeft={<FontAwesomeIcon icon={faCartShopping} />}
               onClick={
-                user ? handleRedirectToAccount : handleRedirectToRegistration
+                user ? handleRedirectToCart : handleRedirectToRegistration
               }
             />
-          }
-        ></Button>
+            <Button
+              appearance="secondary2"
+              contentLeft={<FontAwesomeIcon icon={faBars} />}
+              onClick={toggleAside}
+            />
+          </>
+        ) : (
+          <>
+            <Button
+              appearance="secondary2"
+              contentLeft={<Heart />}
+              onClick={
+                user ? handleRedirectToFavorites : handleRedirectToRegistration
+              }
+            />
+            <Button
+              appearance="secondary2"
+              contentLeft={<FontAwesomeIcon icon={faCartShopping} />}
+              onClick={
+                user ? handleRedirectToCart : handleRedirectToRegistration
+              }
+            />
+            <Button
+              appearance="secondary2"
+              contentLeft={
+                <FontAwesomeIcon
+                  icon={faUser}
+                  onClick={
+                    user
+                      ? handleRedirectToAccount
+                      : handleRedirectToRegistration
+                  }
+                />
+              }
+            />
+          </>
+        )}
       </div>
+      {isShowAside && <AsideMenu />}
     </div>
   );
 };

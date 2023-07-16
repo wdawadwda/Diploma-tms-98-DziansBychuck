@@ -3,6 +3,7 @@
 .title {
   font-size: 56px;
   line-height: 64px;
+  margin-bottom: 15px;
   @include bebas;
 }
 
@@ -19,4 +20,11 @@
   flex-direction: column;
   @include flexCenter;
   @extend .title;
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 32px;
+    line-height: 44px;
+  }
 }
