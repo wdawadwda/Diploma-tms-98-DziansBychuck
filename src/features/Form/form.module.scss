@@ -1,4 +1,5 @@
 @import '~/mixins.scss';
+
 .formСontainer {
   padding: 32px 32px 40px 32px;
   & button {
@@ -32,12 +33,12 @@
   color: var(--book--primary-color);
   margin-bottom: 32px;
 }
-.detailСontainer{
+.detailСontainer {
   width: 100%;
   padding: 20px 0 20px 0;
   margin-bottom: 32px;
   background-color: var(--book--bg-error-color);
-  .detail{
+  .detail {
     padding: 0 20px 0 20px;
     display: flex;
     @include flexCenter;

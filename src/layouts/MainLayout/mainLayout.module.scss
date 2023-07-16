@@ -18,7 +18,14 @@
 
   footer {
     width: 100%;
-    // max-width: var(--book-max-content-width);
     margin: auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    main {
+      padding: 48px 0;
+    }
   }
 }

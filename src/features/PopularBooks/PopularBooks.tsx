@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { useWindowSize } from '~/entities/use/useWindowSize';
 import { Button } from '~/shared/ui/Button/Button';
 import { useGetBooksQuery } from '~/store/api/book/book.api';
 
@@ -14,10 +15,13 @@ export const PopularBooks = ({ startIndex, title }: PopularBooksProperties) => {
   const { data } = useGetBooksQuery();
   const [currentIndex, setCurrentIndex] = useState(startIndex);
   const books = data?.books ?? [];
-  const displayedBooks = books.slice(currentIndex, currentIndex + 3);
+  const windowSize = useWindowSize();
+  const isSmallScreen = windowSize.width <= 700;
+  const booksPerPage = isSmallScreen ? 1 : windowSize.width <= 1200 ? 2 : 3;
+  const displayedBooks = books.slice(currentIndex, currentIndex + booksPerPage);
 
   const handleNext = () => {
-    const nextIndex = currentIndex + 3;
+    const nextIndex = currentIndex + booksPerPage;
     if (nextIndex >= books.length) {
       setCurrentIndex(startIndex);
     } else {
@@ -26,9 +30,10 @@ export const PopularBooks = ({ startIndex, title }: PopularBooksProperties) => {
   };
 
   const handlePrevious = () => {
-    const previousIndex = currentIndex - 3;
+    const previousIndex = currentIndex - booksPerPage;
     if (previousIndex < startIndex) {
-      const lastPageStartIndex = Math.floor((books.length - 1) / 3) * 3;
+      const lastPageStartIndex =
+        Math.floor((books.length - 1) / booksPerPage) * booksPerPage;
       setCurrentIndex(lastPageStartIndex);
     } else {
       setCurrentIndex(previousIndex);
@@ -52,7 +57,7 @@ export const PopularBooks = ({ startIndex, title }: PopularBooksProperties) => {
       </div>
       <div className={Style.popularBooksContainer}>
         {books.length === 0 ? (
-          <div className={Style.loading}>Loading...</div>
+          <div className={Style.loading}>Загрузка...</div>
         ) : (
           <ListContent books={displayedBooks} />
         )}

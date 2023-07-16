@@ -5,7 +5,9 @@
   @include flexCenter;
   flex-direction: column;
   img {
+    height: 400px;
     width: 100%;
+    object-fit: contain;
     cursor: pointer;
   }
   .title {
@@ -40,14 +42,12 @@
       line-height: 32px;
     }
   }
-  .more {
-    width: 100%;
-    &:hover {
-      color: var(--book--secondary-color);
-    }
-  }
 }
 
-form {
-  margin-bottom: 72px;
+@media (max-width: 1200px) {
+  .contentContainer {
+    .additionally {
+      margin-top: 15px;
+    }
+  }
 }

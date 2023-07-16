@@ -4,8 +4,12 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 32px;
+  margin-top: 48px;
 }
 
-// .bookContainer > :last-child {
-//   grid-column: 1 / -1;
-// }
+@media (max-width: 700px) {
+  .bookContainer {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 36px;
+  }
+}
