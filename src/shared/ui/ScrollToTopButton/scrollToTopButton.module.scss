@@ -1,0 +1,14 @@
+@import '~/mixins.scss';
+
+.scrollToTopButtonWrapper {
+  position: fixed;
+  right: 5rem;
+  bottom: 15rem;
+  button {
+    border-radius: 50%;
+    div {
+      width: auto;
+      height: auto;
+    }
+  }
+}
