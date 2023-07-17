@@ -13,9 +13,11 @@ import Styles from '../accounts.module.scss';
 export const EditProfile = () => {
   const navigate = useNavigate();
   const abortController = new AbortController();
+
   const handleGoToAccount = () => {
     navigate('/account');
   };
+
   return (
     <div
       className={classNames({

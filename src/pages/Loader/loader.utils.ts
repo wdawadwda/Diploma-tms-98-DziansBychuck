@@ -2,10 +2,10 @@ export const getLoaderSize = () => {
   const screenWidth = window.innerWidth;
   let newSize = 150;
 
-  if (screenWidth <= 1000) {
-    newSize = 100;
-  } else if (screenWidth <= 1024) {
-    newSize = 125;
+  if (screenWidth <= 700) {
+    newSize = 50;
+  } else if (screenWidth <= 1200) {
+    newSize = 70;
   }
 
   return newSize;
