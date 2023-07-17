@@ -1,0 +1,26 @@
+@import '~/mixins.scss';
+.container {
+  border-top: solid 1px var(--book--secondary2-color);
+  padding: 35px 0 35px 0;
+  color: var(--book--secondary-color);
+  & span {
+    @include heliosRegular;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    & span {
+      display: block;
+      text-align: center;
+      &:nth-child(1) {
+        margin-bottom: 25px;
+      }
+    }
+  }
+}

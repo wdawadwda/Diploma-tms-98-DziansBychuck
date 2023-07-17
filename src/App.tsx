@@ -1,5 +1,19 @@
-import './App.styles.css';
+import './App.styles.scss';
+
+import React from 'react';
+
+import { Provider } from 'react-redux';
+
+import { AppRouter } from '~/router/appRouter';
+
+import { store } from './store/store';
 
 export const App = () => {
-  return <h1>Getting started</h1>;
+  return (
+    <React.StrictMode>
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>
+    </React.StrictMode>
+  );
 };

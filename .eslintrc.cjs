@@ -18,7 +18,19 @@ module.exports = {
     rules: {
       'import/no-default-export': 'off'
     }
-  }],
+  },
+    {
+      files: ['*.sagas.ts'],
+      rules: {
+        '@typescript-eslint/no-unsafe-assignment': 'off'
+      }
+    },
+    {
+      files: ['axiosInstance.ts'],
+      rules: {
+        '@typescript-eslint/no-unsafe-argument': 'off'
+      }
+    }],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: true,

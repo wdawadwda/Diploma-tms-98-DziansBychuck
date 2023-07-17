@@ -1,0 +1,178 @@
+@import '~/mixins.scss';
+
+.cartContetntContainer {
+  display: flex;
+  flex-direction: column;
+  .bookContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 50px 0;
+    margin: 0 0 50px 0;
+    border-bottom: 1px solid var(--book--secondary2-color);
+    img {
+      display: flex;
+      width: 30%;
+    }
+    .contentCenter {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 40%;
+      .title {
+        @include bebas;
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 10px;
+      }
+      .subtitle {
+        @include heliosRegular;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 25px;
+        color: var(--book--secondary-color);
+      }
+      .quantityWrapper {
+        display: flex;
+        .quantity {
+          display: flex;
+          @include flexCenter;
+          width: 56px;
+          height: 56px;
+        }
+      }
+    }
+    .dell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
+      .dellInner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .price {
+          @include bebas;
+          font-size: 24px;
+          line-height: 32px;
+          margin-right: 50px;
+        }
+      }
+    }
+  }
+  .orderWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin-left: auto;
+    .order {
+      display: flex;
+      justify-content: space-between;
+      @include heliosRegular;
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0 0 15px 0;
+      &:nth-child(3) {
+        margin: 0 0 20px 0;
+      }
+      .text {
+        color: var(--book--secondary-color);
+      }
+      .total {
+        @include bebas;
+        font-size: 40px;
+        line-height: 60px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .cartContetntContainer {
+    .orderWrapper {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .cartContetntContainer {
+    display: flex;
+    flex-direction: column;
+    .bookContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0 0 50px 0;
+      margin: 0 0 50px 0;
+      border-bottom: 1px solid var(--book--secondary2-color);
+      img {
+        display: flex;
+        width: 100%;
+      }
+      .contentCenter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        .title {
+          text-align: center;
+        }
+        .subtitle {
+          @include heliosRegular;
+          font-size: 16px;
+          line-height: 24px;
+          margin-bottom: 25px;
+          color: var(--book--secondary-color);
+        }
+        .quantityWrapper {
+          @include flexCenter;
+          .quantity {
+            display: flex;
+            @include flexCenter;
+            width: 56px;
+            height: 56px;
+          }
+        }
+      }
+      .dell {
+        width: 100%;
+        .dellInner {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .price {
+            @include bebas;
+            font-size: 24px;
+            line-height: 32px;
+            margin-right: 50px;
+          }
+        }
+      }
+    }
+    .orderWrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-left: auto;
+      .order {
+        display: flex;
+        justify-content: space-between;
+        @include heliosRegular;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0 0 15px 0;
+        &:nth-child(3) {
+          margin: 0 0 20px 0;
+        }
+        .text {
+          color: var(--book--secondary-color);
+        }
+        .total {
+          @include bebas;
+          font-size: 40px;
+          line-height: 60px;
+        }
+      }
+    }
+  }
+}

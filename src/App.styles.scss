@@ -1,0 +1,89 @@
+@import url('https://fonts.cdnfonts.com/css/bebas-neue');
+@import url('https://fonts.cdnfonts.com/css/din-pro-cond');
+@import url('./fonts.scss');
+@import '~/mixins.scss';
+@import 'normalize.css/normalize';
+
+:root {
+  --book-max-content-width: 1120px;
+  --book--secondary2-color: #e7e7e7;
+
+  --book--bg-color: white;
+
+  --book--bg-error-color: #f4eefd;
+
+  --book--text-color: #3d405b;
+  --book--primary-color: #313037;
+  --book--primary2-color: #5b5a62;
+  --book--secondary-color: #a8a8a8;
+  --book--error-color: red;
+  --book--success-color: blue;
+
+  --book--background-primary-img-color: #d7e4fd;
+  --book--background-secondary-img-color: #f4eefd;
+  --book--background-secondary2-img-color: #fee9e2;
+  //btn
+  --book--btn-text-color: white;
+  //svg
+  --book--svg-stroke-primary-color: white;
+  --book--svg-stroke-secondary-color: #fc857f;
+
+  --book--svg-primary-color: #313037;
+  --book--svg-secondary-color: #fc857f;
+
+  --book--svg-secondary2-color: #4c4b5e;
+
+  --book--loader-color: aqua;
+}
+
+[data-theme-mode='dark'] {
+  --book--secondary2-color: #5b5a62;
+
+  --book--bg-color: #5b5a62;
+  --book--bg-error-color: rgb(156, 181, 189);
+
+  --book--text-color: #e7e7e7;
+  --book--primary-color: #e7e7e7;
+  --book--primary2-color: #e7e7e7;
+  --book--secondary-color: #e7e7e7;
+  --book--error-color: red;
+  --book--success-color: blue;
+
+  --book--background-primary-img-color: #d7e4fd;
+  --book--background-secondary-img-color: #f4eefd;
+  --book--background-secondary2-img-color: #fee9e2;
+  //btn
+  --book--btn-text-color: #313037;
+  //svg
+  --book--svg-stroke-primary-color: #313037;
+  --book--svg-stroke-secondary-color: #fc857f;
+
+  --book--svg-primary-color: white;
+  --book--svg-secondary-color: #fc857f;
+
+  --book--svg-secondary2-color: white;
+
+  --book--loader-color: aqua;
+}
+
+body {
+  color: var(--book--text-color);
+  background-color: var(--book--bg-color);
+  @include heliosRegular;
+}
+
+h1 {
+  margin: auto;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --book-max-content-width: 668px;
+  }
+}
+
+@media (max-width: 700px) {
+  :root {
+    --book-max-content-width: 275px;
+  }
+}

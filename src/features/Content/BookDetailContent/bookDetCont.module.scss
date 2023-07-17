@@ -1,0 +1,174 @@
+@import '~/mixins.scss';
+
+.bookDetailContentContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  .title {
+    flex: 1;
+    @include bebas;
+    font-size: 56px;
+    line-height: 64px;
+    color: var(--book--primary-color);
+    margin: 37px 0 48px 0;
+  }
+  & .innerWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 72px;
+    & .imageWrapper {
+      position: relative;
+      width: 45%;
+      height: 544px;
+      & .image {
+        width: 100%;
+        height: 100%;
+      }
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+
+    & .detail {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      & .priceWrapper {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        & .price {
+          @include bebas;
+          font-size: 40px;
+          line-height: 60px;
+          color: var(--book--primary-color);
+        }
+      }
+      & .detailContent {
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
+        padding-bottom: 100px;
+        div {
+          display: flex;
+          justify-content: space-between;
+          @include heliosRegular;
+          font-size: 16px;
+          line-height: 32px;
+          & .contnetLight {
+            color: var(--book--secondary-color);
+          }
+        }
+      }
+      & .cardWrapper {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        a {
+          @include heliosRegular;
+          font-size: 16px;
+          line-height: 24px;
+          color: var(--book--primary-color);
+          text-align: center;
+        }
+      }
+    }
+  }
+  .tabs {
+    & > div {
+      padding: 0;
+      margin-bottom: 48px;
+    }
+  }
+  .social {
+    display: flex;
+    button {
+      padding: 0;
+      padding-right: 25px;
+      div {
+        svg {
+          fill: white;
+        }
+      }
+    }
+  }
+  form {
+    margin-bottom: 72px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .bookDetailContentContainer {
+    .title {
+      font-size: 32px;
+      line-height: 44px;
+      margin: 25px 0 35px 0;
+    }
+    & .innerWrapper {
+      flex-direction: column;
+      & .imageWrapper {
+        position: relative;
+        width: 100%;
+        height: 50%;
+        & .image {
+          width: 100%;
+          height: 400px;
+          object-fit: contain;
+        }
+      }
+      & .detail {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .bookDetailContentContainer {
+    & .innerWrapper {
+      flex-direction: column;
+      & .imageWrapper {
+        position: relative;
+        width: 100%;
+        height: 50%;
+        & .image {
+          width: 100%;
+          height: 275px;
+          object-fit: contain;
+        }
+      }
+      & .detail {
+        & .detailContent {
+          display: flex;
+          flex-direction: column;
+          padding-top: 50px;
+          padding-bottom: 100px;
+          div {
+            display: flex;
+            justify-content: space-between;
+            @include heliosRegular;
+            font-size: 16px;
+            line-height: 32px;
+            & .contnetLight {
+              color: var(--book--secondary-color);
+            }
+          }
+        }
+        & .cardWrapper {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          a {
+            @include heliosRegular;
+            font-size: 16px;
+            line-height: 24px;
+            color: var(--book--primary-color);
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@import '~/mixins.scss';
+
+.favoritesContainer {
+  display: flex;
+  flex-direction: column;
+  .bookContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 50px 0;
+    margin: 0 0 50px 0;
+    border-bottom: 1px solid var(--book--secondary2-color);
+    img {
+      display: flex;
+      width: 30%;
+    }
+    .contentCenter {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 50%;
+      .title {
+        @include bebas;
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 10px;
+      }
+      .subtitle {
+        @include heliosRegular;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 25px;
+        color: var(--book--secondary-color);
+      }
+      .priceWrapper {
+        display: flex;
+        justify-content: space-between;
+        .price {
+          @extend .title;
+        }
+      }
+    }
+
+    .like {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 10%;
+
+      button {
+        background-color: var(--book--svg-stroke-primary-color);
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .favoritesContainer {
+    .bookContainer {
+      flex-direction: column;
+      img {
+        display: flex;
+        width: 100%;
+      }
+      .contentCenter {
+        width: 100%;
+      }
+
+      .like {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@import '~/mixins.scss';
+.popularBooksContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 32px;
+}
+
+.prevNext {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.title {
+  font-size: 56px;
+  line-height: 64px;
+  @include bebas;
+  margin-bottom: 48px;
+}
+
+.loading {
+  min-height: 50vh;
+  display: flex;
+  @include flexCenter;
+  @extend .title;
+}
+
+.error {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  @include flexCenter;
+  @extend .title;
+}
+
+@media (max-width: 1200px) {
+  .popularBooksContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .popularBooksContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .title {
+    font-size: 28px;
+    line-height: 40px;
+  }
+}

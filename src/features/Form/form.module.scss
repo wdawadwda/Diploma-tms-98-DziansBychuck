@@ -1,0 +1,49 @@
+@import '~/mixins.scss';
+
+.formСontainer {
+  padding: 32px 32px 40px 32px;
+  & button {
+    margin-top: 40px;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    & label {
+      @include heliosBold;
+      font-size: 16px;
+      line-height: 32px;
+      color: var(--book--primary-color);
+    }
+    & input {
+      padding-left: 20px;
+      height: 56px;
+      margin-bottom: 16px;
+    }
+    .errorMessage {
+      color: var(--book--error-color);
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.title {
+  @include bebas;
+  font-size: 24px;
+  line-height: 24px;
+  color: var(--book--primary-color);
+  margin-bottom: 32px;
+}
+.detailСontainer {
+  width: 100%;
+  padding: 20px 0 20px 0;
+  margin-bottom: 32px;
+  background-color: var(--book--bg-error-color);
+  .detail {
+    padding: 0 20px 0 20px;
+    display: flex;
+    @include flexCenter;
+    @include heliosRegular;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
