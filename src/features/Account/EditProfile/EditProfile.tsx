@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { SetEmail } from '~/features/Form/SetEmail/SetEmail';
 import { SetPassword } from '~/features/Form/SetPassword/SetPassword';
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 
 import Style from './editProfile.module.scss';
 import Styles from '../accounts.module.scss';

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 
 import { BookDetailContent } from '~/features/Content/BookDetailContent/BookDetailContent';
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 
 import Style from './bookDetail.module.scss';
 import { useBookDetail } from './useBookDetail';

@@ -2,18 +2,18 @@ import { useEffect, useState } from 'react';
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import { MainLayout } from '~/layouts/MainLayout/MainLayout';
+import { MainLayout } from '~/layouts/MainLayout/Main';
 import { AccountPage } from '~/pages/Account/AccountPage/AccountPage';
 import { EditProfilePage } from '~/pages/Account/EditProfilePage/EditProfilePage';
 import { BookDetail } from '~/pages/BookDetail/BookDetail';
 import { CartPage } from '~/pages/Cart/CartPage';
 import { FavoritesPage } from '~/pages/Favorites/FavoritesPage';
-import { RegistrAuth } from '~/pages/From/RegistrAuth/RegistrAuth';
-import { ResetPassword } from '~/pages/From/ResetPassword/ResetPass';
+import { RegistrAuth } from '~/pages/From/RegistrAuth/registrAuthPage';
+import { ResetPassword } from '~/pages/From/ResetPassword/ResetPassword';
 import { SuccessPage } from '~/pages/From/SuccessPage/SuccessPage';
 import { HomePage } from '~/pages/Home/HomePage';
 import { Loader } from '~/pages/Loader/Loader';
-import { NotFoundPage } from '~/pages/NotFound/NotFound';
+import { NotFoundPage } from '~/pages/NotFound/NotFoundPage';
 import { SearchPage } from '~/pages/SearchPage/SearchPage';
 import { fetchUser } from '~/store/api/fetchUser/fetchUser.api';
 import { useAppDispatch, useAppSelector } from '~/store/store.types';

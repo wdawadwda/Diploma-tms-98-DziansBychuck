@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { bookActions } from '~/store/book/book.slice';
 import { type Rating } from '~/store/book/book.type';
 
-import { type RatingButtonHook } from './ratingButton.type';
+import { type RatingButtonHook } from './Rating.type';
 
 export const useRatingButton = (isbn13: string): RatingButtonHook => {
   const [hoveredRating, setHoveredRating] = useState(0);

@@ -4,7 +4,7 @@ import { type AxiosError } from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 import { resetPasswordFetch } from '~/store/api/fetchUser/fetchUser.api';
 
 import { formSchema } from './form.schema';

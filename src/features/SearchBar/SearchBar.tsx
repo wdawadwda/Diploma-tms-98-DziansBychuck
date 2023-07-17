@@ -2,7 +2,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Field, Form, Formik } from 'formik';
 
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 
 import { formSchemaSearchBar } from './form.schema';
 import { formikPropertiesSearchBar } from './searchBar.const';

@@ -1,6 +1,6 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 
 import {
   formikPropertiesSubscribe,

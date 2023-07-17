@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Style from './scrollToTopButton.module.scss';
 import { handleScrollToTop } from './scrollToTopButton.utils';
-import { Button } from '../Button/Button';
+import { Button } from '../Button/Buttons';
 
 export const ScrollToTopButton = () => {
   return (

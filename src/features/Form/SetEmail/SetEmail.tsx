@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { type AxiosError } from 'axios';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 import { setEmailFetch } from '~/store/api/fetchUser/fetchUser.api';
 import { useAppDispatch } from '~/store/store.types';
 import { userActions } from '~/store/user/user.slice';

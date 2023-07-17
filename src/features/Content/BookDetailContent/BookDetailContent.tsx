@@ -7,10 +7,10 @@ import { ReactComponent as Twitter } from '~/assets/icons/twitter.svg';
 import { type BookDetail } from '~/entities/books.type';
 import { getRandomColor } from '~/entities/utils';
 import { PopularBooks } from '~/features/PopularBooks/PopularBooks';
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 import { LikeButton } from '~/shared/ui/LikeButton/Like';
 import { RatingButton } from '~/shared/ui/RatingButton/RatingButton';
-import { Tabs } from '~/shared/ui/Tabs/Tabs';
+import { Tabs } from '~/shared/ui/Tabs/Tab';
 import { useTabs } from '~/shared/ui/Tabs/useTabs';
 import { bookActions } from '~/store/book/book.slice';
 

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getRandomColor } from '~/entities/utils';
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 import { bookActions } from '~/store/book/book.slice';
 import { type RootState } from '~/store/store.types';
 

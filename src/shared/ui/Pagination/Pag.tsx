@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Style from './pag.module.scss';
 import { type PaginationProperties } from './pag.type';
-import { Button } from '../Button/Button';
+import { Button } from '../Button/Buttons';
 
 export const Pagination = ({
   query,

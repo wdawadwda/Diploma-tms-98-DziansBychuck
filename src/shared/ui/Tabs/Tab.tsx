@@ -1,6 +1,6 @@
 import Styles from './tabs.module.scss';
 import { type TabsProperties } from './tabs.types';
-import { Button } from '../Button/Button';
+import { Button } from '../Button/Buttons';
 
 export const Tabs = ({ activeTab, tabs, handleTabClick }: TabsProperties) => {
   return (

@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 
 import { CustomErrorMessages } from './Error/CustomErrorSignUpForm';
 import { formSchema } from './form.schema';

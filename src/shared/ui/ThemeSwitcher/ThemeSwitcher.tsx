@@ -4,7 +4,7 @@ import { Mode } from '~/store/theme/theme.constants';
 import { selectIsDark, selectIsLight } from '~/store/theme/theme.selectors';
 import { themeActions } from '~/store/theme/theme.slice';
 
-import { Button } from '../Button/Button';
+import { Button } from '../Button/Buttons';
 
 export const ThemeSwitcher = () => {
   const isLight = useSelector(selectIsLight);

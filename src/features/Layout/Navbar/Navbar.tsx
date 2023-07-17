@@ -13,7 +13,7 @@ import { useNav } from '~/entities/use/useNav';
 import { useAside } from '~/entities/use/useShowAside';
 import { useWindowSize } from '~/entities/use/useWindowSize';
 import { AsideMenu } from '~/shared/ui/AsideMenu/AsideMenu';
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 import { selectUser } from '~/store/user/user.selectors';
 
 import { NavLinks } from './navbar.constants';

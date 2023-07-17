@@ -1,6 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 
 import { formSchema } from './form.schema';
 import { formikPropertiesNewPass } from './newPassForm.const';

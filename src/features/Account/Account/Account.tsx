@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 import { ThemeSwitcher } from '~/shared/ui/ThemeSwitcher/ThemeSwitcher';
 
 import Style from './account.module.scss';

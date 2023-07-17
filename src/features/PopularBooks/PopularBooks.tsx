@@ -4,7 +4,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useWindowSize } from '~/entities/use/useWindowSize';
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 import { useGetBooksQuery } from '~/store/api/book/book.api';
 
 import Style from './popelarBooks.module.scss';

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 
 import { CartContetnt } from '~/features/Content/CartContent/CartContetnt';
-import { Button } from '~/shared/ui/Button/Button';
+import { Button } from '~/shared/ui/Button/Buttons';
 
 import Style from './cartPage.module.scss';
 import Styles from '../page.module.scss';

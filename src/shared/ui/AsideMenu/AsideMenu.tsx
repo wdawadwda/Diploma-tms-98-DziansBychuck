@@ -11,7 +11,7 @@ import { selectUser } from '~/store/user/user.selectors';
 import { userActions } from '~/store/user/user.slice';
 
 import Style from './asideMenu.module.scss';
-import { Button } from '../Button/Button';
+import { Button } from '../Button/Buttons';
 import { ThemeSwitcher } from '../ThemeSwitcher/ThemeSwitcher';
 
 export const AsideMenu = () => {

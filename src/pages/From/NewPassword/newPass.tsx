@@ -1,4 +1,4 @@
-import { NewPasswordForm } from '~/features/Form/NewPasswordForm/NewPassForm';
+import { NewPasswordForm } from '~/features/Form/NewPasswordForm/NewPasswordForm';
 
 import Styles from '../form.module.scss';
 
