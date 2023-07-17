@@ -25,3 +25,7 @@ export interface SetResetPasswordData {
 export interface SetResetPasswordResponse {
   email: string;
 }
+
+export interface Access {
+  access: string;
+}
