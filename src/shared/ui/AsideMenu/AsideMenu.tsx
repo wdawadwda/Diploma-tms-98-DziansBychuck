@@ -46,7 +46,7 @@ export const AsideMenu = () => {
             contentLeft={<FontAwesomeIcon icon={faX} />}
           />
           <div className={Style.asideMenuNav}>
-            <SearchBar />
+            <SearchBar toggleAside={toggleAside} />
             {user && (
               <Button
                 isFullWidth={true}
