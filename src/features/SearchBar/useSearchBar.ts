@@ -9,7 +9,7 @@ import { bookActions } from '~/store/book/book.slice';
 
 import { type FormValues } from '../Form/form.type';
 
-export const useSearchBar = () => {
+export const useSearchBar = (toggleAside: () => void) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [page, setPage] = useState(1);
   const { data, isLoading } = useSearchBooksWithPageQuery(
@@ -30,6 +30,7 @@ export const useSearchBar = () => {
       setSearchQuery(values.search);
       setPage(1);
       formikBag.resetForm();
+      toggleAside();
       navigate(`/search/${encodeURIComponent(values.search)}/1`);
     }
   };

@@ -9,8 +9,12 @@ import { formikPropertiesSearchBar } from './searchBar.const';
 import Style from './searchBar.module.scss';
 import { useSearchBar } from './useSearchBar';
 
-export const SearchBar = () => {
-  const { isLoading, handleFormSubmit } = useSearchBar();
+export const SearchBar = ({
+  toggleAside = () => {
+    console.warn('');
+  }
+}) => {
+  const { isLoading, handleFormSubmit } = useSearchBar(toggleAside);
 
   return (
     <>
