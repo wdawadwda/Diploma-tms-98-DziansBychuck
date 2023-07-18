@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useNav } from '~/entities/use/useNav';
-import { useAside } from '~/entities/use/useShowAside';
 import { SearchBar } from '~/features/SearchBar/SearchBar';
+import { navbarActions } from '~/store/navbar/navbar.slice';
+import { type RootState } from '~/store/store.types';
 import { selectUser } from '~/store/user/user.selectors';
 import { userActions } from '~/store/user/user.slice';
 
@@ -29,7 +30,12 @@ export const AsideMenu = () => {
     dispatch(userActions.logout());
   };
 
-  const { isShowAside, toggleAside } = useAside(true);
+  const isShowAside = useSelector(
+    (state: RootState) => state.navbar.isShowAside
+  );
+  const handleToggleAside = () => {
+    dispatch(navbarActions.toggleAside());
+  };
 
   useEffect(() => {
     document.body.style.overflow = isShowAside ? 'hidden' : 'auto';
@@ -42,18 +48,18 @@ export const AsideMenu = () => {
           <Button
             appearance="secondary2"
             isFullWidth={false}
-            onClick={toggleAside}
+            onClick={handleToggleAside}
             contentLeft={<FontAwesomeIcon icon={faX} />}
           />
           <div className={Style.asideMenuNav}>
-            <SearchBar />
+            <SearchBar toggleAside={handleToggleAside} />
             {user && (
               <Button
                 isFullWidth={true}
                 appearance="primary"
                 onClick={() => {
                   handleRedirectToAccount();
-                  toggleAside();
+                  handleToggleAside();
                 }}
               >
                 Account
@@ -67,7 +73,7 @@ export const AsideMenu = () => {
                   appearance="primary"
                   onClick={() => {
                     handleRedirectToFavorites();
-                    toggleAside();
+                    handleToggleAside();
                   }}
                 >
                   Favorites
@@ -77,7 +83,7 @@ export const AsideMenu = () => {
                   appearance="primary"
                   onClick={() => {
                     handleRedirectToCart();
-                    toggleAside();
+                    handleToggleAside();
                   }}
                 >
                   Cart
@@ -96,7 +102,7 @@ export const AsideMenu = () => {
                 appearance="primary"
                 onClick={() => {
                   handleLogout();
-                  toggleAside();
+                  handleToggleAside();
                 }}
               >
                 logout
@@ -109,7 +115,7 @@ export const AsideMenu = () => {
                 appearance="primary"
                 onClick={() => {
                   handleSignIn();
-                  toggleAside();
+                  handleToggleAside();
                 }}
               >
                 Sign-in/Sign Up
@@ -121,7 +127,7 @@ export const AsideMenu = () => {
       {isShowAside && (
         <div
           className={Style.layout}
-          onClick={toggleAside}
+          onClick={handleToggleAside}
         ></div>
       )}
     </>

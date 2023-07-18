@@ -18,4 +18,5 @@ export const store = configureStore({
       .prepend(listenerMiddlewareBook.middleware),
   devTools: import.meta.env.DEV
 });
+
 store.dispatch(themeActions.setThemeFromLocalStorage());
