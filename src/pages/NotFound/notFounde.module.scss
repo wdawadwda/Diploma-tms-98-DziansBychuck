@@ -19,6 +19,7 @@
   }
   & h3 {
     @extend h2;
+    text-align: center;
     font-size: 10vh;
     color: var(--book--secondary-color);
   }
