@@ -88,3 +88,19 @@
     }
   }
 }
+
+:root {
+  [data-theme-mode='dark'] {
+    .primary {
+      background-color: var(--book--primary-color);
+      color: var(--book--btn-text-color);
+      &:hover:not(:disabled) {
+        background-color: var(--book--hover-dark);
+      }
+      &:disabled {
+        background-color: $disabled-color;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
