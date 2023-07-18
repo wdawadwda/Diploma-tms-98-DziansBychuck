@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
   faBars,
   faCartShopping,
@@ -41,6 +43,14 @@ export const Navbar = () => {
   const handleToggleAside = () => {
     dispatch(navbarActions.toggleAside());
   };
+
+  const [iconColor, setIconColor] = useState(
+    user ? 'inherit' : 'var(--book--btn-text-color)'
+  );
+
+  useEffect(() => {
+    setIconColor(user ? 'inherit' : 'var(--book--btn-text-color)');
+  }, [user]);
 
   return (
     <div
@@ -96,11 +106,22 @@ export const Navbar = () => {
               contentLeft={
                 <FontAwesomeIcon
                   icon={faUser}
+                  style={{ color: iconColor }}
                   onClick={
                     user
                       ? handleRedirectToAccount
                       : handleRedirectToRegistration
                   }
+                  onMouseEnter={() => {
+                    if (!user) {
+                      setIconColor('var(--book--primary-color)');
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    if (!user) {
+                      setIconColor('var(--book--btn-text-color)');
+                    }
+                  }}
                 />
               }
             />
