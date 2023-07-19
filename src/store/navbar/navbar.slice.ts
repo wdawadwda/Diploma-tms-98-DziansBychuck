@@ -1,9 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { type NavbarState } from './navbar.type';
+import { type SetBodyOverflowPayload, type NavbarState } from './navbar.type';
 
 const getInitialState = (): NavbarState => ({
-  isShowAside: false
+  isShowAside: false,
+  bodyOverflow: 'auto'
 });
 
 export const navbarSlice = createSlice({
@@ -12,6 +13,9 @@ export const navbarSlice = createSlice({
   reducers: {
     toggleAside: (state) => {
       state.isShowAside = !state.isShowAside;
+    },
+    setBodyOverflow: (state, action: PayloadAction<SetBodyOverflowPayload>) => {
+      state.bodyOverflow = action.payload.bodyOverflow;
     }
   }
 });

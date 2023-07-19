@@ -33,13 +33,19 @@ export const AsideMenu = () => {
   const isShowAside = useSelector(
     (state: RootState) => state.navbar.isShowAside
   );
+
+  const bodyOverflow = useSelector(
+    (state: RootState) => state.navbar.bodyOverflow
+  );
+
   const handleToggleAside = () => {
     dispatch(navbarActions.toggleAside());
+    dispatch(navbarActions.setBodyOverflow({ bodyOverflow: 'auto' }));
   };
 
   useEffect(() => {
-    document.body.style.overflow = isShowAside ? 'hidden' : 'auto';
-  }, [isShowAside]);
+    document.body.style.overflow = bodyOverflow;
+  }, [bodyOverflow]);
 
   return (
     <>

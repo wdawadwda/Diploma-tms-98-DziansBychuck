@@ -39,8 +39,19 @@ export const Navbar = () => {
   const isShowAside = useSelector(
     (state: RootState) => state.navbar.isShowAside
   );
+
+  const bodyOverflow = useSelector(
+    (state: RootState) => state.navbar.bodyOverflow
+  );
+
   const dispatch = useDispatch();
+
   const handleToggleAside = () => {
+    if (isShowAside) {
+      dispatch(navbarActions.setBodyOverflow({ bodyOverflow: 'auto' }));
+    } else {
+      dispatch(navbarActions.setBodyOverflow({ bodyOverflow: 'hidden' }));
+    }
     dispatch(navbarActions.toggleAside());
   };
 
@@ -51,6 +62,10 @@ export const Navbar = () => {
   useEffect(() => {
     setIconColor(user ? 'inherit' : 'var(--book--btn-text-color)');
   }, [user]);
+
+  useEffect(() => {
+    document.body.style.overflow = bodyOverflow;
+  }, [bodyOverflow]);
 
   return (
     <div
